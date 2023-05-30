@@ -5,11 +5,13 @@ import Navbar from "../Navbar/Navbar";
 
 const Layout = (): React.ReactElement => {
   return (
-    <ContainerStyled>
-      <Header />
+    <>
+      <ContainerStyled>
+        <Header />
+        <Outlet />
+      </ContainerStyled>
       <Navbar />
-      <Outlet />
-    </ContainerStyled>
+    </>
   );
 };
 
