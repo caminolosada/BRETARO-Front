@@ -21,6 +21,7 @@ export default defineConfig({
         "src/styles/GlobalStyle",
         "src/main.tsx",
         "src/store/index.ts",
+        "src/routers/appRouter.tsx",
       ],
     },
   },
