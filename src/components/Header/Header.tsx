@@ -4,8 +4,8 @@ const Header = (): React.ReactElement => {
   return (
     <HeaderStyled>
       <img
-        src="/public/images/text-logo.svg"
-        alt="brearo logo"
+        src="/images/text-logo.svg"
+        alt="bretaro logo"
         width={200}
         height={30}
       />
