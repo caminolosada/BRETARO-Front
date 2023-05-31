@@ -9,10 +9,11 @@ const theme: DefaultTheme = {
     tertiary: "#edd973",
     goodFeedback: "#54935e",
     badFeedBack: "#ed143b",
+    generalText: "#311a38",
   },
 
   fonts: {
-    primary: "Libre baskerville",
+    primary: "Libre baskerville, serif",
   },
 
   fontSize: {
