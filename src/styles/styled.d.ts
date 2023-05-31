@@ -9,6 +9,7 @@ declare module "styled-components" {
       tertiary: string;
       goodFeedback: string;
       badFeedBack: string;
+      generalText: string;
     };
 
     fonts: {
