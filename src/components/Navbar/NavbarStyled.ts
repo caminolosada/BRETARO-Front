@@ -11,7 +11,7 @@ const NavbarStyled = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    min-width: 320px;
+    min-width: 100%;
     padding: 14px 20px;
   }
 
