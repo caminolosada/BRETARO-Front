@@ -1,4 +1,5 @@
 import { BookStructure } from "../../types";
+import BookCard from "../BookCard/BookCard";
 import BookListStyled from "./BooksListStyled";
 
 interface BooksListProps {
@@ -10,7 +11,7 @@ const BooksList = ({ booksProps }: BooksListProps): React.ReactElement => {
     <BookListStyled className="books-list">
       {booksProps.map((book) => (
         <li className="books-list__card" key={book._id}>
-          <h2 className="books-list__card-title">{book.title}</h2>
+          <BookCard bookProps={book} />
         </li>
       ))}
     </BookListStyled>
