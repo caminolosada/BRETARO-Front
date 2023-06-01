@@ -1,5 +1,5 @@
 export interface BookStructure {
-  id: string;
+  _id: string;
   title: string;
   author: string;
   frontPage: string;
