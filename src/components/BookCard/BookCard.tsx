@@ -1,4 +1,5 @@
 import { BookStructure } from "../../types";
+import BookCardStyled from "./BookCardStyled";
 
 interface BookCardProps {
   bookProps: BookStructure;
@@ -6,19 +7,19 @@ interface BookCardProps {
 
 const BookCard = ({ bookProps }: BookCardProps): React.ReactElement => {
   return (
-    <article>
+    <BookCardStyled>
       <img
         src={bookProps.frontPage}
         alt={`${bookProps.title} front page`}
-        className="books-list__card-front-page"
-        width="90px"
-        height="120px"
+        className="card-front-page"
+        width="90"
+        height="120"
       />
       <div className="info-book">
-        <h2 className="books-book__title">{bookProps.title}</h2>
+        <h2 className="info-book__title">{bookProps.title}</h2>
         <h3 className="info-book__author">{bookProps.author}</h3>
       </div>
-    </article>
+    </BookCardStyled>
   );
 };
 
