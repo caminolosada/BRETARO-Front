@@ -1,4 +1,4 @@
-import BooksList from "../components/BooksList/BookList";
+import BooksList from "../components/BooksList/BooksList";
 import { booksMocks } from "../mocks/booksMock";
 import { useAppDispatch } from "../store";
 import { loadBooksActionCreator } from "../store/books/booksSlice";
