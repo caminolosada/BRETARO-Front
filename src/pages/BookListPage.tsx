@@ -1,3 +1,4 @@
+import BooksList from "../components/BooksList/BooksList";
 import { booksMocks } from "../mocks/booksMock";
 import { useAppDispatch } from "../store";
 import { loadBooksActionCreator } from "../store/books/booksSlice";
@@ -8,9 +9,12 @@ const BookListPage = (): React.ReactElement => {
 
   dispatch(loadBooksActionCreator(booksMocks));
   return (
-    <BookListPageStyled>
-      <h1 className="title">What is in your shelf?</h1>
-    </BookListPageStyled>
+    <>
+      <BookListPageStyled>
+        <h1 className="title">What is in your shelf?</h1>
+      </BookListPageStyled>
+      <BooksList booksProps={booksMocks} />
+    </>
   );
 };
 
