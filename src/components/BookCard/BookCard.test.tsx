@@ -12,7 +12,7 @@ describe("Given a BookCard component", () => {
     test("Then it should show the information that its author is 'Carlos Montero'", () => {
       const expectedAuthor = booksMocks[0].author;
 
-      const bookAuthor = screen.getByRole("heading", { name: expectedAuthor });
+      const bookAuthor = screen.getByText(expectedAuthor);
 
       expect(bookAuthor).toBeInTheDocument;
     });

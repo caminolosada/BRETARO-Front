@@ -17,7 +17,7 @@ const BookCard = ({ bookProps }: BookCardProps): React.ReactElement => {
       />
       <div className="info-book">
         <h2 className="info-book__title">{bookProps.title}</h2>
-        <h3 className="info-book__author">{bookProps.author}</h3>
+        <span className="info-book__author">{bookProps.author}</span>
       </div>
     </BookCardStyled>
   );
