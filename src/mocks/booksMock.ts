@@ -2,7 +2,7 @@ import { BookStructure } from "../types";
 
 export const booksMocks: BookStructure[] = [
   {
-    _id: "647711a81beb7e30d69afdfe",
+    id: "647711a81beb7e30d69afdfe",
     title: "El desorden que dejas",
     author: "Carlos Montero",
     frontPage:
@@ -16,7 +16,7 @@ export const booksMocks: BookStructure[] = [
       "Entre los misterios de un pueblo y la intriga de un instituto, las vidas de dos mujeres se entrelazan en un peligroso juego.",
   },
   {
-    _id: "647711a81beb7e30d69afdff",
+    id: "647711a81beb7e30d69afdff",
     title: "La ridícula idea de no volver a verte",
     author: "Rosa Montero",
     frontPage:
