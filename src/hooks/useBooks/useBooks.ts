@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BookStructure } from "../../types";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+export const apiUrl = import.meta.env.VITE_API_URL;
 
 const useBooks = () => {
   const getBooks = async (): Promise<BookStructure[]> => {
