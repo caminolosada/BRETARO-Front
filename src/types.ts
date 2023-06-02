@@ -1,5 +1,4 @@
 export interface BookStructure {
-  _id: string;
   title: string;
   author: string;
   frontPage: string;
@@ -9,4 +8,5 @@ export interface BookStructure {
   rating: number;
   destination: string;
   cosmos: string;
+  id: string;
 }

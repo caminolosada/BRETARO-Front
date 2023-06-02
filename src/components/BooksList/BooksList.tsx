@@ -10,7 +10,7 @@ const BooksList = ({ booksProps }: BooksListProps): React.ReactElement => {
   return (
     <BookListStyled className="books-list">
       {booksProps.map((book) => (
-        <li className="books-list__card" key={book._id}>
+        <li className="books-list__card" key={book.id}>
           <BookCard bookProps={book} />
         </li>
       ))}
