@@ -22,7 +22,7 @@ const BookCardStyled = styled.article`
     font-size: ${(props) => props.theme.fontSize.small};
 
     &__title {
-      max-width: 12ch;
+      max-width: 13ch;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
