@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const LoaderStyled = styled.div`
-  background-color: ${(props) => props.theme.colors.primary + 70};
+  background-color: ${(props) => props.theme.colors.primary + 20};
   height: 100vh;
   width: 100vw;
   display: flex;
