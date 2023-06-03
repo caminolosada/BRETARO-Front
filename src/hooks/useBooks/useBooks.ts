@@ -6,9 +6,15 @@ export const apiUrl = import.meta.env.VITE_API_URL;
 
 const useBooks = () => {
   const getBooks = useCallback(async (): Promise<BookStructure[]> => {
-    const { data: books } = await axios.get<BookStructure[]>(`${apiUrl}/books`);
+    try {
+      const { data: books } = await axios.get<BookStructure[]>(
+        `${apiUrl}/books`
+      );
 
-    return books;
+      return books;
+    } catch (error) {
+      throw new Error("Can't get books");
+    }
   }, []);
 
   return { getBooks };
