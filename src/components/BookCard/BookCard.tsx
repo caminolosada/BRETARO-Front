@@ -1,4 +1,5 @@
 import { BookStructure } from "../../types";
+import Button from "../Button/Button";
 import BookCardStyled from "./BookCardStyled";
 
 interface BookCardProps {
@@ -19,6 +20,18 @@ const BookCard = ({ bookProps }: BookCardProps): React.ReactElement => {
         <h2 className="info-book__title">{bookProps.title}</h2>
         <span className="info-book__author">{bookProps.author}</span>
       </div>
+      <Button
+        classname="delete-button"
+        aria-label="delete"
+        image={
+          <img
+            src="/images/delete-icon.svg"
+            alt="delete icon"
+            width={24}
+            height={24}
+          />
+        }
+      />
     </BookCardStyled>
   );
 };

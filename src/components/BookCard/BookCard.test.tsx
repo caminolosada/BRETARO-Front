@@ -25,4 +25,14 @@ describe("Given a BookCard component", () => {
       expect(frontPage).toBeInTheDocument();
     });
   });
+
+  describe("When it is rendered", () => {
+    test("Then it should show a delete button with an icon with the alternative text 'delete icon'", () => {
+      const expectedAlternativeText = "delete icon";
+
+      const deleteButton = screen.getByAltText(expectedAlternativeText);
+
+      expect(deleteButton).toBeInTheDocument();
+    });
+  });
 });
