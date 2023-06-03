@@ -22,6 +22,7 @@ const BookCard = ({ bookProps }: BookCardProps): React.ReactElement => {
       </div>
       <Button
         classname="delete-button"
+        aria-label="delete"
         image={
           <img
             src="/images/delete-icon.svg"
