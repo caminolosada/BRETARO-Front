@@ -7,3 +7,9 @@ export const handlers = [
     return res(ctx.status(200), ctx.json(booksMocks));
   }),
 ];
+
+export const errorHandlers = [
+  rest.get(`${apiUrl}/books`, (_req, res, ctx) => {
+    return res(ctx.status(500), ctx.json({ errorMessage: "Can't get books" }));
+  }),
+];
