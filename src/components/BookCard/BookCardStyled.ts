@@ -8,6 +8,7 @@ const BookCardStyled = styled.article`
   margin-top: 10px;
   padding: 20px;
   gap: 10px;
+  position: relative;
 
   .card-front-page {
     border-radius: 8px;
@@ -25,6 +26,12 @@ const BookCardStyled = styled.article`
       overflow: hidden;
       font-weight: bold;
     }
+  }
+
+  .delete-button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
   }
 `;
 
