@@ -10,3 +10,24 @@ export interface BookStructure {
   cosmos: string;
   id: string;
 }
+
+export interface modalDataStructure {
+  icon: {
+    ok: string;
+    error: string;
+  };
+  feedback: {
+    ok: string;
+    error: string;
+  };
+  message: {
+    okLogOut: string;
+    okAdd: string;
+    okDeleted: string;
+    okEdit: string;
+    errorCredentials: string;
+    erorAdd: string;
+    errorRemove: string;
+    errorEdit: string;
+  };
+}
