@@ -22,7 +22,7 @@ const Modal = ({
           image={
             <img
               src="/public/images/delete-icon.svg"
-              alt="delete icon"
+              alt="close"
               width={24}
               height={24}
             />
@@ -30,7 +30,7 @@ const Modal = ({
         />
         <img
           className="icon"
-          alt="ok-icon"
+          alt="modal icon"
           src={icon}
           width={105}
           height={80}
