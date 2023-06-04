@@ -3,6 +3,7 @@ import { booksMocks } from "../../mocks/booksMock";
 import useBooks from "./useBooks";
 import { server } from "../../mocks/server";
 import { errorHandlers } from "../../mocks/handlers";
+import { wrapper } from "../../utils/testUtils";
 
 describe("Given a useBooks function", () => {
   describe("When it calls the getBooks function", () => {
@@ -13,7 +14,7 @@ describe("Given a useBooks function", () => {
         result: {
           current: { getBooks },
         },
-      } = renderHook(() => useBooks());
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
 
       const response = await getBooks();
 
@@ -28,7 +29,7 @@ describe("Given a useBooks function", () => {
         result: {
           current: { getBooks },
         },
-      } = renderHook(() => useBooks());
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
 
       expect(getBooks()).rejects.toThrowError();
     });
