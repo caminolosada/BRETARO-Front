@@ -1,10 +1,22 @@
 import Button from "../Button/Button";
 import ModalStyled from "./ModalStyled";
 
-const Modal = (): React.ReactElement => {
+interface ModalProps {
+  icon: string;
+  feedback: string;
+  message: string;
+  className: string | undefined;
+}
+
+const Modal = ({
+  icon,
+  className,
+  feedback,
+  message,
+}: ModalProps): React.ReactElement => {
   return (
-    <ModalStyled className="modal">
-      <article className="modal-container">
+    <ModalStyled className={className}>
+      <article className={`modal-container ${className} `}>
         <Button
           classname="close"
           image={
@@ -19,14 +31,12 @@ const Modal = (): React.ReactElement => {
         <img
           className="icon"
           alt="ok-icon"
-          src="/public/images/ok.svg"
+          src={icon}
           width={105}
           height={80}
         />
-        <span className="feedback">Good!</span>
-        <span className="feedback__msg">
-          You no longer have this book on your shelf
-        </span>
+        <span className="feedback">{feedback}</span>
+        <span className="feedback__msg">{message}</span>
       </article>
     </ModalStyled>
   );

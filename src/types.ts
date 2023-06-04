@@ -30,4 +30,8 @@ export interface modalDataStructure {
     errorRemove: string;
     errorEdit: string;
   };
+  className: {
+    ok?: string;
+    error?: string;
+  };
 }

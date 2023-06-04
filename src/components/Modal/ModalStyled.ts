@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const ModalStyled = styled.section`
+const ModalStyled = styled.section.attrs((props) => ({
+  className: props.className,
+}))`
   position: fixed;
   top: 0;
   left: 0;
@@ -23,10 +25,17 @@ const ModalStyled = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
     text-align: center;
     padding: 20px;
     gap: 24px;
+
+    &&__ok {
+      border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
+    }
+
+    &&__error {
+      border: solid ${(props) => props.theme.colors.badFeedBack + 30} 10px;
+    }
   }
 
   .close {
