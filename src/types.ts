@@ -35,3 +35,8 @@ export interface modalDataStructure {
     error?: string;
   };
 }
+
+export interface PathsStructure {
+  app: string;
+  home: string;
+}
