@@ -8,6 +8,7 @@ import Loader from "../Loader/Loader";
 
 const Layout = (): React.ReactElement => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
+
   return (
     <>
       {isLoading && <Loader />}

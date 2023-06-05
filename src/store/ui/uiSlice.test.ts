@@ -6,9 +6,9 @@ import {
 } from "../../mocks/uiMocks";
 import { UiStateStructure } from "./types";
 import {
-  hideErrorActionCreator,
+  hideModalActionCreator,
   hideLoadingActionCreator,
-  showErrorActionCreator,
+  showModalActionCreator,
   showLoadingActionCreator,
   uiReducer,
 } from "./uiSlice";
@@ -38,25 +38,31 @@ describe("Given a uiReducer reducer", () => {
     });
   });
 
-  describe("When it is called with a showError action", () => {
+  describe("When it is called with a showModal action", () => {
     test("Then it should return a new state with isError set to true", () => {
       const currentUiState: UiStateStructure = hideErrorMock;
 
       const expectedUiState: UiStateStructure = showErrorMock;
 
-      const newState = uiReducer(currentUiState, showErrorActionCreator());
+      const newState = uiReducer(
+        currentUiState,
+        showModalActionCreator({ isError: true, isSuccess: false })
+      );
 
       expect(newState).toStrictEqual(expectedUiState);
     });
   });
 
-  describe("When it is called with a hideError action", () => {
+  describe("When it is called with a hideModal action", () => {
     test("Then it should return a new state with isError set to false", () => {
       const currentUiState: UiStateStructure = showErrorMock;
 
       const expectedUiState: UiStateStructure = hideErrorMock;
 
-      const newState = uiReducer(currentUiState, hideErrorActionCreator());
+      const newState = uiReducer(
+        currentUiState,
+        hideModalActionCreator({ isError: false, isSuccess: false })
+      );
 
       expect(newState).toStrictEqual(expectedUiState);
     });

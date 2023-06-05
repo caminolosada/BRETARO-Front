@@ -25,6 +25,7 @@ export interface modalDataStructure {
     okAdd: string;
     okDeleted: string;
     okEdit: string;
+    errorBooks: string;
     errorCredentials: string;
     erorAdd: string;
     errorRemove: string;

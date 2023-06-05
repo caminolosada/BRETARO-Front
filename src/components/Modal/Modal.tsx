@@ -1,11 +1,13 @@
+import { useAppDispatch } from "../../store";
+import { hideModalActionCreator } from "../../store/ui/uiSlice";
 import Button from "../Button/Button";
 import ModalStyled from "./ModalStyled";
 
 interface ModalProps {
-  icon: string;
-  feedback: string;
-  message: string;
-  type: string;
+  icon?: string;
+  feedback?: string;
+  message?: string;
+  type?: string;
 }
 
 const Modal = ({
@@ -14,11 +16,18 @@ const Modal = ({
   feedback,
   message,
 }: ModalProps): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
+  const handleOnClose = () => {
+    dispatch(hideModalActionCreator({ isError: false }));
+  };
+
   return (
     <ModalStyled>
       <article className={`modal-container ${type}`}>
         <Button
           classname="button"
+          actionOnClick={handleOnClose}
           image={
             <img
               src="/public/images/delete-icon.svg"
