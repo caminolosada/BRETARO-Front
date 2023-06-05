@@ -1,3 +1,5 @@
 import { lazy } from "react";
 
-export const LazyBookListPage = lazy(() => import("../pages/BookListPage"));
+export const LazyBookListPage = lazy(
+  () => import("../pages/BookListPage/BookListPage")
+);
