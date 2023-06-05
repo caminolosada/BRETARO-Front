@@ -1,4 +1,4 @@
-import { modalDataStructure } from "../../types";
+import { modalDataStructure } from "../types";
 
 const modalData: modalDataStructure = {
   icon: {

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../store";
 import { loadBooksActionCreator } from "../store/books/booksSlice";
 import BookListPageStyled from "./BookListPageStyled";
 import Modal from "../components/Modal/Modal";
-import modalData from "../components/Modal/modalData";
+import modalData from "../data/modalData";
 
 const BookListPage = (): React.ReactElement => {
   const books = useAppSelector((state) => state.books.booksData);

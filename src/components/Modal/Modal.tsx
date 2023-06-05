@@ -1,13 +1,13 @@
 import { useAppDispatch } from "../../store";
-import { hideErrorActionCreator } from "../../store/ui/uiSlice";
+import { hideModalActionCreator } from "../../store/ui/uiSlice";
 import Button from "../Button/Button";
 import ModalStyled from "./ModalStyled";
 
 interface ModalProps {
-  icon: string;
-  feedback: string;
-  message: string;
-  type: string;
+  icon?: string;
+  feedback?: string;
+  message?: string;
+  type?: string;
 }
 
 const Modal = ({
@@ -19,7 +19,7 @@ const Modal = ({
   const dispatch = useAppDispatch();
 
   const handleOnClose = () => {
-    dispatch(hideErrorActionCreator({ isError: false }));
+    dispatch(hideModalActionCreator({ isError: false }));
   };
 
   return (

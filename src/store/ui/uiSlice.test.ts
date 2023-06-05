@@ -6,9 +6,9 @@ import {
 } from "../../mocks/uiMocks";
 import { UiStateStructure } from "./types";
 import {
-  hideErrorActionCreator,
+  hideModalActionCreator,
   hideLoadingActionCreator,
-  showErrorActionCreator,
+  showModalActionCreator,
   showLoadingActionCreator,
   uiReducer,
 } from "./uiSlice";
@@ -46,7 +46,7 @@ describe("Given a uiReducer reducer", () => {
 
       const newState = uiReducer(
         currentUiState,
-        showErrorActionCreator({ isError: true })
+        showModalActionCreator({ isError: true })
       );
 
       expect(newState).toStrictEqual(expectedUiState);
@@ -61,7 +61,7 @@ describe("Given a uiReducer reducer", () => {
 
       const newState = uiReducer(
         currentUiState,
-        hideErrorActionCreator({ isError: false })
+        hideModalActionCreator({ isError: false })
       );
 
       expect(newState).toStrictEqual(expectedUiState);

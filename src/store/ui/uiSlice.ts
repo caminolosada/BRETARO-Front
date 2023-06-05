@@ -4,6 +4,7 @@ import { UiStateStructure } from "./types";
 const initialUiState: UiStateStructure = {
   isLoading: false,
   isError: false,
+  isSuccess: false,
 };
 
 const uiSlice = createSlice({
@@ -18,26 +19,28 @@ const uiSlice = createSlice({
       ...currentUiState,
       isLoading: false,
     }),
-    showError: (
+    showModal: (
       currentUiState: UiStateStructure,
       action: PayloadAction<UiStateStructure>
     ) => ({
       ...currentUiState,
       isError: action.payload.isError,
+      isSuccess: action.payload.isSuccess,
     }),
-    hideError: (
+    hideModal: (
       currentUiState: UiStateStructure,
       action: PayloadAction<UiStateStructure>
     ) => ({
       ...currentUiState,
       isError: action.payload.isError,
+      isSuccess: action.payload.isSuccess,
     }),
   },
 });
 
 export const { showLoading: showLoadingActionCreator } = uiSlice.actions;
 export const { hideLoading: hideLoadingActionCreator } = uiSlice.actions;
-export const { showError: showErrorActionCreator } = uiSlice.actions;
-export const { hideError: hideErrorActionCreator } = uiSlice.actions;
+export const { showModal: showModalActionCreator } = uiSlice.actions;
+export const { hideModal: hideModalActionCreator } = uiSlice.actions;
 
 export const uiReducer = uiSlice.reducer;
