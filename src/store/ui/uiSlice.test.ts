@@ -59,7 +59,10 @@ describe("Given a uiReducer reducer", () => {
 
       const expectedUiState: UiStateStructure = hideErrorMock;
 
-      const newState = uiReducer(currentUiState, hideErrorActionCreator());
+      const newState = uiReducer(
+        currentUiState,
+        hideErrorActionCreator({ isError: false })
+      );
 
       expect(newState).toStrictEqual(expectedUiState);
     });
