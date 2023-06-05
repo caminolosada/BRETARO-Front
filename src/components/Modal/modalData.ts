@@ -19,9 +19,9 @@ const modalData: modalDataStructure = {
     errorRemove: "Couldn't remove this book from your shelf",
     errorEdit: "Couldn't edit this book",
   },
-  className: {
-    ok: "__ok",
-    error: "__error",
+  type: {
+    ok: "ok",
+    error: "error",
   },
 };
 

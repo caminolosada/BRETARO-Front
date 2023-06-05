@@ -30,8 +30,13 @@ export interface modalDataStructure {
     errorRemove: string;
     errorEdit: string;
   };
-  className: {
-    ok?: string;
-    error?: string;
+  type: {
+    ok: string;
+    error: string;
   };
+}
+
+export interface PathsStructure {
+  app: string;
+  home: string;
 }

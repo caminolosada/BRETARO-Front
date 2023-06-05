@@ -11,7 +11,7 @@ describe("Given a Modal component", () => {
       renderWithProviders(
         wrapWithRouter(
           <Modal
-            className={modalData.className.ok}
+            type={modalData.type.ok}
             feedback={modalData.feedback.ok}
             message={modalData.message.okDeleted}
             icon={modalData.icon.ok}

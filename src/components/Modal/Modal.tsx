@@ -5,20 +5,20 @@ interface ModalProps {
   icon: string;
   feedback: string;
   message: string;
-  className: string | undefined;
+  type: string;
 }
 
 const Modal = ({
   icon,
-  className,
+  type,
   feedback,
   message,
 }: ModalProps): React.ReactElement => {
   return (
-    <ModalStyled className={className}>
-      <article className={`modal-container ${className} `}>
+    <ModalStyled>
+      <article className={`modal-container ${type}`}>
         <Button
-          classname="close"
+          classname="button"
           image={
             <img
               src="/public/images/delete-icon.svg"
@@ -36,7 +36,7 @@ const Modal = ({
           height={80}
         />
         <span className="feedback">{feedback}</span>
-        <span className="feedback__msg">{message}</span>
+        <span className="feedback__message">{message}</span>
       </article>
     </ModalStyled>
   );

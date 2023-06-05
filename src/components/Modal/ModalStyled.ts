@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const ModalStyled = styled.section.attrs((props) => ({
-  className: props.className,
-}))`
+const ModalStyled = styled.section`
   position: fixed;
   top: 0;
   left: 0;
@@ -28,17 +26,17 @@ const ModalStyled = styled.section.attrs((props) => ({
     text-align: center;
     padding: 20px;
     gap: 24px;
-
-    &&__ok {
-      border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
-    }
-
-    &&__error {
-      border: solid ${(props) => props.theme.colors.badFeedBack + 30} 10px;
-    }
   }
 
-  .close {
+  .ok {
+    border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
+  }
+
+  .error {
+    border: solid ${(props) => props.theme.colors.badFeedBack + 30} 10px;
+  }
+
+  .button {
     position: absolute;
     right: 20px;
     top: 20px;
@@ -53,7 +51,7 @@ const ModalStyled = styled.section.attrs((props) => ({
     font-size: ${(props) => props.theme.fontSize.small};
     font-weight: ${(props) => props.theme.fontWeight.bold};
 
-    &__msg {
+    &__message {
       font-size: ${(props) => props.theme.fontSize.small};
       max-width: 200px;
     }

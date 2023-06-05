@@ -7,6 +7,7 @@ import theme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle/GlobalStyle";
 import { Provider } from "react-redux";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import paths from "../routers/paths/paths";
 
 export const renderWithProviders = (
   ui: React.ReactElement,
@@ -29,7 +30,7 @@ export const renderWithProviders = (
 export const wrapWithRouter = (ui: React.ReactElement) => {
   const routes = [
     {
-      path: "/",
+      path: paths.app,
       element: ui,
     },
   ];
