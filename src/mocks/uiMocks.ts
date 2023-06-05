@@ -10,8 +10,10 @@ export const hideLoadingMock: UiStateStructure = {
 
 export const showErrorMock: UiStateStructure = {
   isError: true,
+  isSuccess: false,
 };
 
 export const hideErrorMock: UiStateStructure = {
   isError: false,
+  isSuccess: false,
 };

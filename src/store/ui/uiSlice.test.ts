@@ -38,7 +38,7 @@ describe("Given a uiReducer reducer", () => {
     });
   });
 
-  describe("When it is called with a showError action", () => {
+  describe("When it is called with a showModal action", () => {
     test("Then it should return a new state with isError set to true", () => {
       const currentUiState: UiStateStructure = hideErrorMock;
 
@@ -46,14 +46,14 @@ describe("Given a uiReducer reducer", () => {
 
       const newState = uiReducer(
         currentUiState,
-        showModalActionCreator({ isError: true })
+        showModalActionCreator({ isError: true, isSuccess: false })
       );
 
       expect(newState).toStrictEqual(expectedUiState);
     });
   });
 
-  describe("When it is called with a hideError action", () => {
+  describe("When it is called with a hideModal action", () => {
     test("Then it should return a new state with isError set to false", () => {
       const currentUiState: UiStateStructure = showErrorMock;
 
@@ -61,7 +61,7 @@ describe("Given a uiReducer reducer", () => {
 
       const newState = uiReducer(
         currentUiState,
-        hideModalActionCreator({ isError: false })
+        hideModalActionCreator({ isError: false, isSuccess: false })
       );
 
       expect(newState).toStrictEqual(expectedUiState);
