@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export interface UiStateStructure {
-  isLoading: boolean;
-}
+import { UiStateStructure } from "./types";
 
 const initialUiState: UiStateStructure = {
   isLoading: false,
+  isError: false,
 };
 
 const uiSlice = createSlice({
@@ -20,9 +18,15 @@ const uiSlice = createSlice({
       ...currentUiState,
       isLoading: false,
     }),
+    showError: (currentUiState: UiStateStructure) => ({
+      ...currentUiState,
+      isError: true,
+    }),
   },
 });
 
 export const { showLoading: showLoadingActionCreator } = uiSlice.actions;
 export const { hideLoading: hideLoadingActionCreator } = uiSlice.actions;
+export const { showError: showErrorActionCreator } = uiSlice.actions;
+
 export const uiReducer = uiSlice.reducer;
