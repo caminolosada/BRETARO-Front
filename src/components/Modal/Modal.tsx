@@ -1,3 +1,5 @@
+import { useAppDispatch } from "../../store";
+import { hideErrorActionCreator } from "../../store/ui/uiSlice";
 import Button from "../Button/Button";
 import ModalStyled from "./ModalStyled";
 
@@ -14,11 +16,18 @@ const Modal = ({
   feedback,
   message,
 }: ModalProps): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
+  const handleOnClose = () => {
+    dispatch(hideErrorActionCreator({ isError: false }));
+  };
+
   return (
     <ModalStyled>
       <article className={`modal-container ${type}`}>
         <Button
           classname="button"
+          actionOnClick={handleOnClose}
           image={
             <img
               src="/public/images/delete-icon.svg"

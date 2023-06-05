@@ -25,9 +25,12 @@ const uiSlice = createSlice({
       ...currentUiState,
       isError: action.payload.isError,
     }),
-    hideError: (currentUiState: UiStateStructure) => ({
+    hideError: (
+      currentUiState: UiStateStructure,
+      action: PayloadAction<UiStateStructure>
+    ) => ({
       ...currentUiState,
-      isError: false,
+      isError: action.payload.isError,
     }),
   },
 });
