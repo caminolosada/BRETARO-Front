@@ -3,6 +3,7 @@ import axios from "axios";
 import { BookStructure } from "../../types";
 import {
   hideLoadingActionCreator,
+  showErrorActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 import { useAppDispatch } from "../../store";
@@ -22,6 +23,8 @@ const useBooks = () => {
       dispatch(hideLoadingActionCreator());
       return books;
     } catch (error) {
+      dispatch(hideLoadingActionCreator());
+      dispatch(showErrorActionCreator({ isError: true }));
       throw new Error("Can't get books");
     }
   }, [dispatch]);
