@@ -1,7 +1,5 @@
 import { screen, waitFor } from "@testing-library/react";
-
 import userEvent from "@testing-library/user-event";
-
 import { LazyBookListPage } from "../../routers/lazyComponents";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import modalData from "../../data/modalData";
@@ -33,7 +31,7 @@ describe("Given a BookListPage page", () => {
       });
     });
 
-    describe("When renders an feedback Modal and a user clicks on the close button", () => {
+    describe("When renders a feedback Modal and a user clicks on the close button", () => {
       test("Then it should disappear", async () => {
         const expectedAlternativeText = "modal icon";
 
