@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import "./index.css";
 import GlobalStyle from "./styles/GlobalStyle/GlobalStyle";
 import { store } from "./store";
 import { ThemeProvider } from "styled-components";

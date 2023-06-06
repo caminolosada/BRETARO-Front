@@ -1,8 +1,10 @@
 import { screen, waitFor } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../utils/testUtils";
+
 import userEvent from "@testing-library/user-event";
-import { LazyBookListPage } from "../routers/lazyComponents";
-import modalData from "../data/modalData";
+
+import { LazyBookListPage } from "../../routers/lazyComponents";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import modalData from "../../data/modalData";
 import BookListPage from "./BookListPage";
 
 describe("Given a BookListPage page", () => {
