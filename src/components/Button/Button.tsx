@@ -3,16 +3,26 @@ interface ButtonProps {
   text?: string;
   classname: string;
   actionOnClick?: () => void;
+  title?: string;
+  ariaLabel?: string;
 }
 
 const Button = ({
   image,
   text,
   classname,
+  ariaLabel,
+  title,
   actionOnClick,
 }: ButtonProps): React.ReactElement => {
   return (
-    <button type="button" className={classname} onClick={actionOnClick}>
+    <button
+      type="button"
+      className={classname}
+      onClick={actionOnClick}
+      aria-label={ariaLabel}
+      title={title}
+    >
       {text}
       {image}
     </button>

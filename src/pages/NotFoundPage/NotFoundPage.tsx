@@ -27,6 +27,8 @@ const NotFoundPage = (): React.ReactElement => {
             classname="button"
             text="Back home"
             actionOnClick={handleOnClick}
+            title="back home"
+            ariaLabel="back home"
           />
         </NotFoundPageStyled>
       </ContainerStyled>
