@@ -8,7 +8,11 @@ const routes: RouteObject[] = [
   {
     path: paths.app,
     element: <App />,
-    errorElement: <LazyNotFoundPage />,
+    errorElement: (
+      <Suspense>
+        <LazyNotFoundPage />
+      </Suspense>
+    ),
     children: [
       {
         path: paths.home,
