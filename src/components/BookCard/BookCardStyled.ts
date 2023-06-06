@@ -7,7 +7,7 @@ const BookCardStyled = styled.article`
   height: 160px;
   margin-top: 10px;
   padding: 20px;
-  gap: 10px;
+  gap: 20px;
   position: relative;
 
   .card-front-page {

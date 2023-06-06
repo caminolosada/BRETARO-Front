@@ -9,9 +9,9 @@ interface BooksListProps {
 const BooksList = ({ booksProps }: BooksListProps): React.ReactElement => {
   return (
     <BookListStyled className="books-list">
-      {booksProps.map((book) => (
+      {booksProps.map((book, index) => (
         <li className="books-list__card" key={book.id}>
-          <BookCard bookProps={book} />
+          <BookCard bookProps={book} isLazy={index === 0 ? "eager" : "lazy"} />
         </li>
       ))}
     </BookListStyled>
