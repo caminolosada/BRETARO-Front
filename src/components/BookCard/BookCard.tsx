@@ -13,17 +13,17 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
       <img
         src={bookProps.frontPage}
         alt={`${bookProps.title} front page`}
-        className="card-front-page"
+        className="card__image"
         width="75"
         height="120"
         loading={isLazy}
       />
-      <div className="info-book">
-        <h2 className="info-book__title">{bookProps.title}</h2>
-        <span className="info-book__author">{bookProps.author}</span>
+      <div className="info">
+        <h2 className="info__title">{bookProps.title}</h2>
+        <span className="info__author">{bookProps.author}</span>
       </div>
       <Button
-        classname="delete-button"
+        classname="card__button"
         aria-label="delete"
         image={
           <img

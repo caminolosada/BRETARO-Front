@@ -10,12 +10,12 @@ const BookCardStyled = styled.article`
   gap: 20px;
   position: relative;
 
-  .card-front-page {
+  .card__image {
     border-radius: 8px;
     object-fit: cover;
   }
 
-  .info-book {
+  .info {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -28,7 +28,7 @@ const BookCardStyled = styled.article`
     }
   }
 
-  .delete-button {
+  .card__button {
     position: absolute;
     right: 24px;
     bottom: 24px;
