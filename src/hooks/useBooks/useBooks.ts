@@ -22,7 +22,7 @@ const useBooks = () => {
 
       dispatch(hideLoadingActionCreator());
       return books;
-    } catch (error) {
+    } catch {
       dispatch(hideLoadingActionCreator());
       dispatch(showModalActionCreator({ isError: true }));
       throw new Error("Can't get books");

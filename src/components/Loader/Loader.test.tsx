@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import { renderWithProviders } from "../../utils/testUtils";
 import Loader from "./Loader";
 
 describe("Given a Loader component", () => {
@@ -7,7 +7,7 @@ describe("Given a Loader component", () => {
     test("Then it should show an spinner animation with the name 'loader animation'", () => {
       const expectedName = "loader animation";
 
-      renderWithProviders(wrapWithRouter(<Loader />));
+      renderWithProviders(<Loader />);
 
       const loader = screen.getByLabelText(expectedName);
 
