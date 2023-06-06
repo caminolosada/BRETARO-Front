@@ -36,4 +36,18 @@ describe("Given a Layout component", () => {
       expect(addBookIcon).toBeInTheDocument();
     });
   });
+
+  describe("When a page is loading", () => {
+    test("Then it should show an spinner animation with the name 'loader animation'", () => {
+      const expectedName = "loader animation";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: { isLoading: true },
+      });
+
+      const loader = screen.getByLabelText(expectedName);
+
+      expect(loader).toBeInTheDocument();
+    });
+  });
 });
