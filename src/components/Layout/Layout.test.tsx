@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import Layout from "./Layout";
-import modalData from "../../data/modalData";
+import modalData from "../Modal/modalData";
 
 describe("Given a Layout component", () => {
   describe("When it is rendered", () => {

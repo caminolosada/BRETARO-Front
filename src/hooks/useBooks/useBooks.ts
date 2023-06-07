@@ -7,7 +7,7 @@ import {
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 import { useAppDispatch } from "../../store";
-import modalData from "../../data/modalData";
+import modalData from "../../components/Modal/modalData";
 
 export const apiUrl = import.meta.env.VITE_API_URL;
 
