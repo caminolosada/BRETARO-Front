@@ -1,15 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
+import { NavLink } from "react-router-dom";
 import NotFoundPageStyled from "./NotFoundPageStyled";
 import paths from "../../routers/paths/paths";
 
 const NotFoundPage = (): React.ReactElement => {
-  const navigate = useNavigate();
-
-  const handleOnClick = () => {
-    navigate(paths.home);
-  };
-
   return (
     <NotFoundPageStyled>
       <span className="error">404</span>
@@ -18,13 +11,14 @@ const NotFoundPage = (): React.ReactElement => {
       <p className="message">
         It is a good time to pick up a book and continue reading
       </p>
-      <Button
-        classname="button"
-        text="Back home"
-        actionOnClick={handleOnClick}
+      <NavLink
+        className="home"
+        to={paths.home}
         title="back home"
-        ariaLabel="back home"
-      />
+        aria-label="back home"
+      >
+        Back home
+      </NavLink>
     </NotFoundPageStyled>
   );
 };
