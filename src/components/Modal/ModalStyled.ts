@@ -28,7 +28,7 @@ const ModalStyled = styled.section`
     gap: 24px;
   }
 
-  .ok {
+  .good {
     border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
   }
 

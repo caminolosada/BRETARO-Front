@@ -5,18 +5,12 @@ import modalData from "../../data/modalData";
 
 describe("Given a Modal component", () => {
   describe("When it receives a positive feedback and is rendered", () => {
-    test("Then it should show the message 'Good!' inside", () => {
-      const expectedMessage = modalData.feedback.ok;
+    test("Then it should show the message 'You have a new book on your shelf' inside", () => {
+      const expectedMessage = modalData.message.okAdd;
+      const isError = false;
 
       renderWithProviders(
-        wrapWithRouter(
-          <Modal
-            type={modalData.type.ok}
-            feedback={modalData.feedback.ok}
-            message={modalData.message.okDeleted}
-            icon={modalData.icon.ok}
-          />
-        )
+        wrapWithRouter(<Modal isError={isError} message={expectedMessage} />)
       );
       const modal = screen.getByText(expectedMessage);
 

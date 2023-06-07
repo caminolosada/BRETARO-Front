@@ -17,7 +17,7 @@ const Modal = ({ isError, message }: ModalProps): React.ReactElement => {
 
   return (
     <ModalStyled>
-      <article className={`modal-container ${isError ? "error" : "ok"}`}>
+      <article className={`modal-container ${isError ? "error" : "good"}`}>
         <Button
           classname="button"
           actionOnClick={handleOnClose}
