@@ -26,17 +26,17 @@ const ModalStyled = styled.section`
     text-align: center;
     padding: 20px;
     gap: 24px;
+
+    &--error {
+      border: solid ${(props) => props.theme.colors.badFeedBack + 30} 10px;
+    }
+
+    &--good {
+      border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
+    }
   }
 
-  .modal-container--good {
-    border: solid ${(props) => props.theme.colors.goodFeedback + 30} 10px;
-  }
-
-  .modal-container--error {
-    border: solid ${(props) => props.theme.colors.badFeedBack + 30} 10px;
-  }
-
-  .button {
+  button {
     position: absolute;
     right: 20px;
     top: 20px;

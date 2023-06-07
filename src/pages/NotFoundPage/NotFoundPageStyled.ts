@@ -9,7 +9,6 @@ const NotFoundPageStyled = styled.main`
   margin-top: 100px;
   text-align: center;
 
-
   .error {
     font-size: ${(props) => props.theme.fontSize.extraLarge};
     font-weight: ${(props) => props.theme.fontWeight.bold};
@@ -19,17 +18,18 @@ const NotFoundPageStyled = styled.main`
   .feedback {
     font-size: ${(props) => props.theme.fontSize.medium};
   }
-  
-  .button {
+
+  .home {
     background-color: ${(props) => props.theme.colors.tertiary};
     width: 162px;
     height: 48px;
     border-radius: 5px;
     font-size: ${(props) => props.theme.fontSize.medium};
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
-  .
 `;
 
 export default NotFoundPageStyled;
