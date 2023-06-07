@@ -9,6 +9,7 @@ const NotFoundPage = (): React.ReactElement => {
   const handleOnClick = () => {
     navigate(paths.home);
   };
+
   return (
     <NotFoundPageStyled>
       <span className="error">404</span>

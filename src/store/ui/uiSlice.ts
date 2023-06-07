@@ -1,10 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UiStateStructure } from "./types";
+import { UiStateStructure, modalStateStructure } from "./types";
 
 const initialUiState: UiStateStructure = {
   isLoading: false,
-  isError: false,
-  isSuccess: false,
+  modalState: {
+    isError: false,
+    isVisible: false,
+    message: "",
+  },
 };
 
 const uiSlice = createSlice({
@@ -21,19 +24,16 @@ const uiSlice = createSlice({
     }),
     showModal: (
       currentUiState: UiStateStructure,
-      action: PayloadAction<UiStateStructure>
+      action: PayloadAction<modalStateStructure>
     ) => ({
       ...currentUiState,
-      isError: action.payload.isError,
-      isSuccess: action.payload.isSuccess,
+      modalState: {
+        ...action.payload,
+      },
     }),
-    hideModal: (
-      currentUiState: UiStateStructure,
-      action: PayloadAction<UiStateStructure>
-    ) => ({
+    hideModal: (currentUiState: UiStateStructure) => ({
       ...currentUiState,
-      isError: action.payload.isError,
-      isSuccess: action.payload.isSuccess,
+      modalState: { ...initialUiState.modalState },
     }),
   },
 });

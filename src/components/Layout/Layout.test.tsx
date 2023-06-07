@@ -1,6 +1,8 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import Layout from "./Layout";
+import modalData from "../Modal/modalData";
 
 describe("Given a Layout component", () => {
   describe("When it is rendered", () => {
@@ -42,12 +44,60 @@ describe("Given a Layout component", () => {
       const expectedName = "loader animation";
 
       renderWithProviders(wrapWithRouter(<Layout />), {
-        ui: { isLoading: true },
+        ui: {
+          isLoading: true,
+          modalState: { isError: false, isVisible: false, message: "" },
+        },
       });
 
       const loader = screen.getByLabelText(expectedName);
 
       expect(loader).toBeInTheDocument();
+    });
+  });
+
+  describe("When it receives isError and isVisible seted true and the message 'Can't get books' from the store", () => {
+    test("Then it should show a feedback element with the message 'Can't get books' inside", () => {
+      const expectedMessage = modalData.message.errorBooks;
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: {
+          isLoading: false,
+          modalState: {
+            isVisible: true,
+            isError: true,
+            message: expectedMessage,
+          },
+        },
+      });
+
+      const message = screen.getByText(expectedMessage);
+
+      expect(message).toBeInTheDocument();
+    });
+  });
+
+  describe("When renders a feedback Modal and a user clicks on the close button", () => {
+    test("Then it should disappear", async () => {
+      const expectedAlternativeText = "modal icon";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: {
+          isLoading: false,
+          modalState: {
+            isVisible: true,
+            isError: true,
+            message: modalData.message.errorBooks,
+          },
+        },
+      });
+
+      const icon = screen.getByAltText(expectedAlternativeText);
+
+      const button = screen.getByRole("button");
+      await userEvent.click(button);
+
+      expect(icon).not.toBeInTheDocument();
     });
   });
 });
