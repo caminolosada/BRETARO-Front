@@ -2,18 +2,32 @@ import { UiStateStructure } from "../store/ui/types";
 
 export const showLoadingMock: UiStateStructure = {
   isLoading: true,
+  modalState: {
+    isError: false,
+    isVisible: false,
+    message: "",
+  },
 };
 
 export const hideLoadingMock: UiStateStructure = {
   isLoading: false,
+  modalState: { ...showLoadingMock.modalState },
 };
 
-export const showErrorMock: UiStateStructure = {
-  isError: true,
-  isSuccess: false,
+export const showModal: UiStateStructure = {
+  isLoading: false,
+  modalState: {
+    isError: false,
+    isVisible: true,
+    message: "",
+  },
 };
 
-export const hideErrorMock: UiStateStructure = {
-  isError: false,
-  isSuccess: false,
+export const hideModal: UiStateStructure = {
+  isLoading: false,
+  modalState: {
+    isError: false,
+    isVisible: false,
+    message: "",
+  },
 };

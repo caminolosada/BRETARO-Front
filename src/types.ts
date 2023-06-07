@@ -12,14 +12,6 @@ export interface BookStructure {
 }
 
 export interface modalDataStructure {
-  icon: {
-    ok: string;
-    error: string;
-  };
-  feedback: {
-    ok: string;
-    error: string;
-  };
   message: {
     okLogOut: string;
     okAdd: string;
@@ -30,10 +22,6 @@ export interface modalDataStructure {
     erorAdd: string;
     errorRemove: string;
     errorEdit: string;
-  };
-  type: {
-    ok: string;
-    error: string;
   };
 }
 

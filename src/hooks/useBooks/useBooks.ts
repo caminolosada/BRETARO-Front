@@ -7,6 +7,7 @@ import {
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 import { useAppDispatch } from "../../store";
+import modalData from "../../data/modalData";
 
 export const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -24,7 +25,13 @@ const useBooks = () => {
       return books;
     } catch {
       dispatch(hideLoadingActionCreator());
-      dispatch(showModalActionCreator({ isError: true }));
+      dispatch(
+        showModalActionCreator({
+          isError: true,
+          message: modalData.message.errorBooks,
+          isVisible: true,
+        })
+      );
       throw new Error("Can't get books");
     }
   }, [dispatch]);

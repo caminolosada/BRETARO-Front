@@ -4,27 +4,20 @@ import Button from "../Button/Button";
 import ModalStyled from "./ModalStyled";
 
 interface ModalProps {
-  icon?: string;
-  feedback?: string;
-  message?: string;
-  type?: string;
+  isError: boolean;
+  message: string;
 }
 
-const Modal = ({
-  icon,
-  type,
-  feedback,
-  message,
-}: ModalProps): React.ReactElement => {
+const Modal = ({ isError, message }: ModalProps): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   const handleOnClose = () => {
-    dispatch(hideModalActionCreator({ isError: false }));
+    dispatch(hideModalActionCreator());
   };
 
   return (
     <ModalStyled>
-      <article className={`modal-container ${type}`}>
+      <article className={`modal-container ${isError ? "error" : "ok"}`}>
         <Button
           classname="button"
           actionOnClick={handleOnClose}
@@ -40,11 +33,11 @@ const Modal = ({
         <img
           className="icon"
           alt="modal icon"
-          src={icon}
+          src={`/public/images/${isError ? "bad.svg" : "ok.svg"}`}
           width={105}
           height={80}
         />
-        <span className="feedback">{feedback}</span>
+        <span className="feedback">{`${isError ? "Glops!" : "Good!"}`}</span>
         <span className="feedback__message">{message}</span>
       </article>
     </ModalStyled>
