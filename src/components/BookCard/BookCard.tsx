@@ -35,7 +35,8 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
       </div>
       <Button
         classname="card__button"
-        aria-label="delete"
+        ariaLabel="delete"
+        title="delete"
         image={
           <img
             src="/images/delete-icon.svg"

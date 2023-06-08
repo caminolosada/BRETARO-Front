@@ -77,7 +77,7 @@ describe("Given a Layout component", () => {
     });
   });
 
-  describe("When renders a feedback Modal and a user clicks on the close button", () => {
+  describe("When renders a feedback Modal and an user clicks on the close button", () => {
     test("Then it should disappear", async () => {
       const expectedAlternativeText = "modal icon";
 
