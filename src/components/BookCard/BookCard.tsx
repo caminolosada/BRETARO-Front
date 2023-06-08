@@ -1,3 +1,6 @@
+import useBooks from "../../hooks/useBooks/useBooks";
+import { useAppDispatch } from "../../store";
+import { deleteBooksActionCreator } from "../../store/books/booksSlice";
 import { BookStructure } from "../../types";
 import Button from "../Button/Button";
 import BookCardStyled from "./BookCardStyled";
@@ -8,6 +11,14 @@ interface BookCardProps {
 }
 
 const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
+  const { deleteBooks } = useBooks();
+  const dispatch = useAppDispatch();
+
+  const handleOnClick = () => {
+    deleteBooks(bookProps.id);
+    dispatch(deleteBooksActionCreator(bookProps.id));
+  };
+
   return (
     <BookCardStyled>
       <img
@@ -24,7 +35,8 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
       </div>
       <Button
         classname="card__button"
-        aria-label="delete"
+        ariaLabel="delete"
+        title="delete"
         image={
           <img
             src="/images/delete-icon.svg"
@@ -33,6 +45,7 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
             height={24}
           />
         }
+        actionOnClick={handleOnClick}
       />
     </BookCardStyled>
   );

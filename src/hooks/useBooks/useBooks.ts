@@ -36,7 +36,33 @@ const useBooks = () => {
     }
   }, [dispatch]);
 
-  return { getBooks };
+  const deleteBooks = async (id: string): Promise<void> => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      await axios.delete<void>(`${apiUrl}/books/delete/${id}`);
+
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showModalActionCreator({
+          isError: false,
+          isVisible: true,
+          message: modalData.message.okDeleted,
+        })
+      );
+    } catch {
+      dispatch(
+        showModalActionCreator({
+          isError: true,
+          isVisible: true,
+          message: modalData.message.errorRemove,
+        })
+      );
+    }
+  };
+
+  return { getBooks, deleteBooks };
 };
 
 export default useBooks;
