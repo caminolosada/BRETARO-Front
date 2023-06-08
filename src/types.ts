@@ -28,4 +28,5 @@ export interface modalDataStructure {
 export interface PathsStructure {
   app: string;
   home: string;
+  addBook: string;
 }

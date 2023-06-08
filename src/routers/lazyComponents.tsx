@@ -7,3 +7,7 @@ export const LazyBookListPage = lazy(
 export const LazyNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage")
 );
+
+export const LazyAddBookPage = lazy(
+  () => import("../pages/AddBookPage/AddBookPage")
+);
