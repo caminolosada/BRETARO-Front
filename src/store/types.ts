@@ -1,5 +1,5 @@
-import { BookStructure } from "../types";
+import { BookDataStructure } from "../types";
 
 export interface BooksState {
-  booksData: BookStructure[];
+  booksData: BookDataStructure[];
 }

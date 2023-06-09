@@ -8,7 +8,10 @@ export interface BookStructure {
   rating: number;
   destination: string;
   cosmos: string;
-  id?: string;
+}
+
+export interface BookDataStructure extends BookStructure {
+  id: string;
 }
 
 export interface modalDataStructure {

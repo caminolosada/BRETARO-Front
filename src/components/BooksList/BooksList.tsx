@@ -1,9 +1,9 @@
-import { BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import BookCard from "../BookCard/BookCard";
 import BookListStyled from "./BooksListStyled";
 
 interface BooksListProps {
-  booksProps: BookStructure[];
+  booksProps: BookDataStructure[];
 }
 
 const BooksList = ({ booksProps }: BooksListProps): React.ReactElement => {

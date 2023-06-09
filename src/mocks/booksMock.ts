@@ -1,6 +1,6 @@
-import { BookStructure } from "../types";
+import { BookDataStructure } from "../types";
 
-export const booksMocks: BookStructure[] = [
+export const booksMocks: BookDataStructure[] = [
   {
     id: "647711a81beb7e30d69afdfe",
     title: "El desorden que dejas",

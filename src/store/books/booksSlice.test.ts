@@ -1,5 +1,5 @@
 import { booksMocks } from "../../mocks/booksMock";
-import { BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import { BooksState } from "../types";
 import {
   booksReducer,
@@ -10,7 +10,7 @@ import {
 describe("Given a loadBooks reducer", () => {
   describe("When it receives an empty books state and an action to load two books", () => {
     test("Then it should return a list with two books", () => {
-      const currentEmptyState: BookStructure[] = [];
+      const currentEmptyState: BookDataStructure[] = [];
 
       const currentBooksState: BooksState = {
         booksData: currentEmptyState,
