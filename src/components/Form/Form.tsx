@@ -25,10 +25,6 @@ const Form = (): React.ReactElement => {
           Editorial
         </label>
         <input className="form__input" type="text" id="editorial" />
-        <label className="form__label" htmlFor="editorial">
-          Editorial
-        </label>
-        <input className="form__input" type="text" id="editorial" />
         <label className="form__label" htmlFor="status">
           Choose status
         </label>

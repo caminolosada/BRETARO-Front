@@ -45,6 +45,7 @@ const FormStyled = styled.form`
       margin: 0 auto;
       margin-bottom: 150px;
       background-color: ${(props) => props.theme.colors.tertiary};
+      color: ${(props) => props.theme.colors.generalText};
       width: 162px;
       height: 48px;
       border-radius: 5px;
