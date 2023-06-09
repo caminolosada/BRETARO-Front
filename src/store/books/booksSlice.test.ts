@@ -1,7 +1,8 @@
-import { booksMocks } from "../../mocks/booksMock";
+import { addedBookMock, booksMocks } from "../../mocks/booksMock";
 import { BookDataStructure } from "../../types";
 import { BooksState } from "../types";
 import {
+  addBooksActionCreator,
   booksReducer,
   deleteBooksActionCreator,
   loadBooksActionCreator,
@@ -47,6 +48,28 @@ describe("Given a deleteBooks reducer", () => {
       const newState: BooksState = booksReducer(
         currentBooksState,
         deleteBooksAction
+      );
+
+      expect(newState).toStrictEqual(expectedNewState);
+    });
+  });
+});
+
+describe("Giveb a addBooks reducer", () => {
+  describe("When it receives a collection of books, and the action to add a new book", () => {
+    test("Then it should return a collection of book with the new book titled 'La uruguaya'", () => {
+      const currentBooksState: BooksState = {
+        booksData: booksMocks,
+      };
+
+      const expectedNewState: BooksState = {
+        booksData: [...booksMocks, addedBookMock],
+      };
+
+      const addBookAction = addBooksActionCreator(addedBookMock);
+      const newState: BooksState = booksReducer(
+        currentBooksState,
+        addBookAction
       );
 
       expect(newState).toStrictEqual(expectedNewState);
