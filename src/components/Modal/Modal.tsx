@@ -27,7 +27,7 @@ const Modal = ({ isError, message }: ModalProps): React.ReactElement => {
           actionOnClick={handleOnClose}
           image={
             <img
-              src="/public/images/delete-icon.svg"
+              src="/images/delete-icon.svg"
               alt="close"
               width={24}
               height={24}
@@ -37,7 +37,7 @@ const Modal = ({ isError, message }: ModalProps): React.ReactElement => {
         <img
           className="icon"
           alt="modal icon"
-          src={`/public/images/${isError ? "bad.svg" : "ok.svg"}`}
+          src={`/images/${isError ? "bad.svg" : "ok.svg"}`}
           width={105}
           height={80}
         />
