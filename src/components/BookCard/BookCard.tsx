@@ -1,12 +1,12 @@
 import useBooks from "../../hooks/useBooks/useBooks";
 import { useAppDispatch } from "../../store";
 import { deleteBooksActionCreator } from "../../store/books/booksSlice";
-import { BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import Button from "../Button/Button";
 import BookCardStyled from "./BookCardStyled";
 
 interface BookCardProps {
-  bookProps: BookStructure;
+  bookProps: BookDataStructure;
   isLazy?: "lazy" | "eager";
 }
 

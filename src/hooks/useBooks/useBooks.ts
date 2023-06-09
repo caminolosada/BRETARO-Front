@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import axios from "axios";
-import { BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import {
   hideLoadingActionCreator,
   showModalActionCreator,
@@ -13,11 +13,11 @@ export const apiUrl = import.meta.env.VITE_API_URL;
 
 const useBooks = () => {
   const dispatch = useAppDispatch();
-  const getBooks = useCallback(async (): Promise<BookStructure[]> => {
+  const getBooks = useCallback(async (): Promise<BookDataStructure[]> => {
     try {
       dispatch(showLoadingActionCreator());
 
-      const { data: books } = await axios.get<BookStructure[]>(
+      const { data: books } = await axios.get<BookDataStructure[]>(
         `${apiUrl}/books`
       );
 

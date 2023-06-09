@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import { BooksState } from "../types";
 
 const initialBooksState: BooksState = {
@@ -12,7 +12,7 @@ export const booksSlice = createSlice({
   reducers: {
     loadBooks: (
       currentBooksState,
-      action: PayloadAction<BookStructure[]>
+      action: PayloadAction<BookDataStructure[]>
     ): BooksState => ({
       ...currentBooksState,
       booksData: [...action.payload],
@@ -26,11 +26,19 @@ export const booksSlice = createSlice({
         (book) => book.id !== action.payload
       ),
     }),
+    addBooks: (
+      currentBooksState,
+      action: PayloadAction<BookDataStructure>
+    ): BooksState => ({
+      ...currentBooksState,
+      booksData: [...currentBooksState.booksData, action.payload],
+    }),
   },
 });
 
 export const {
   loadBooks: loadBooksActionCreator,
   deleteBooks: deleteBooksActionCreator,
+  addBooks: addBooksActionCreator,
 } = booksSlice.actions;
 export const booksReducer = booksSlice.reducer;
