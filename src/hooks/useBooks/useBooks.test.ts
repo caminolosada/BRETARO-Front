@@ -1,5 +1,9 @@
 import { renderHook } from "@testing-library/react";
-import { booksMocks } from "../../mocks/booksMock";
+import {
+  addedBookMock,
+  booksMocks,
+  createdBookMock,
+} from "../../mocks/booksMock";
 import useBooks from "./useBooks";
 import { server } from "../../mocks/server";
 import { errorHandlers, handlers } from "../../mocks/handlers";
@@ -58,7 +62,7 @@ describe("Given a useBooks function", () => {
     });
 
     describe("When it calls the deleteBooks function with a incorrect id", () => {
-      test("Then the feedback message 'Couldn't remove this book from your shelf'", async () => {
+      test("Then it should show the feedback message 'Couldn't remove this book from your shelf'", async () => {
         server.resetHandlers(...errorHandlers);
 
         const errorId = "sdkfnsdfl";
@@ -76,6 +80,45 @@ describe("Given a useBooks function", () => {
 
         expect(message).toBe(expectedMessage);
       });
+    });
+  });
+
+  describe("When it calls the createBooks function with the data of the book 'La uruguaya'", () => {
+    test("Then it should return the book 'La uruguaya'", async () => {
+      server.resetHandlers(...handlers);
+
+      const expectedBook = addedBookMock;
+
+      const {
+        result: {
+          current: { createBook },
+        },
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
+
+      const newBook = await createBook(createdBookMock);
+
+      expect(newBook).toStrictEqual(expectedBook);
+    });
+  });
+
+  describe("When it calls the createBooks function with a book with invalid data", () => {
+    test("Then it should show the feedback message 'Couldn't add this book on your shelf'", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      createdBookMock.author = "";
+      const message = modalData.message.erorAdd;
+
+      const {
+        result: {
+          current: { createBook },
+        },
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
+
+      await createBook(createdBookMock);
+
+      const expectedMessage = store.getState().ui.modalState.message;
+
+      expect(message).toBe(expectedMessage);
     });
   });
 });
