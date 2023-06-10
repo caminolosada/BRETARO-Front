@@ -70,7 +70,7 @@ const useBooks = () => {
       const {
         data: { newBook },
       } = await axios.post<{ newBook: BookDataStructure }>(
-        `${apiUrl}/add`,
+        `${apiUrl}/books/add`,
         bookData
       );
       dispatch(hideLoadingActionCreator());
