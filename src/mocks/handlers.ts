@@ -1,6 +1,6 @@
 import { rest } from "msw";
 import { apiUrl } from "../hooks/useBooks/useBooks";
-import { booksMocks } from "./booksMock";
+import { addedBookMock, booksMocks } from "./booksMock";
 import modalData from "../components/Modal/modalData";
 
 export const handlers = [
@@ -14,6 +14,10 @@ export const handlers = [
       ctx.json({ message: modalData.message.okDeleted })
     );
   }),
+
+  rest.post(`${apiUrl}/books/add`, (_req, res, ctx) => {
+    return res(ctx.status(201), ctx.json({ newBook: addedBookMock }));
+  }),
 ];
 
 export const errorHandlers = [
@@ -25,6 +29,13 @@ export const errorHandlers = [
     return res(
       ctx.status(404),
       ctx.json({ mesage: modalData.message.errorRemove })
+    );
+  }),
+
+  rest.post(`${apiUrl}/books/add`, (_req, res, ctx) => {
+    return res(
+      ctx.status(400),
+      ctx.json({ message: modalData.message.erorAdd })
     );
   }),
 ];
