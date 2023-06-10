@@ -55,7 +55,7 @@ describe("Given a deleteBooks reducer", () => {
   });
 });
 
-describe("Giveb a addBooks reducer", () => {
+describe("Given a addBooks reducer", () => {
   describe("When it receives a collection of books, and the action to add a new book", () => {
     test("Then it should return a collection of book with the new book titled 'La uruguaya'", () => {
       const currentBooksState: BooksState = {

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import axios from "axios";
-import { BookDataStructure } from "../../types";
+import { BookDataStructure, BookStructure } from "../../types";
 import {
   hideLoadingActionCreator,
   showModalActionCreator,
@@ -62,7 +62,33 @@ const useBooks = () => {
     }
   };
 
-  return { getBooks, deleteBooks };
+  const createBook = async (
+    bookData: BookStructure
+  ): Promise<BookDataStructure | undefined> => {
+    try {
+      dispatch(showLoadingActionCreator());
+      const {
+        data: { newBook },
+      } = await axios.post<{ newBook: BookDataStructure }>(
+        `${apiUrl}/add`,
+        bookData
+      );
+      dispatch(hideLoadingActionCreator());
+
+      return newBook;
+    } catch {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          isError: true,
+          message: modalData.message.erorAdd,
+          isVisible: true,
+        })
+      );
+    }
+  };
+
+  return { getBooks, deleteBooks, createBook };
 };
 
 export default useBooks;
