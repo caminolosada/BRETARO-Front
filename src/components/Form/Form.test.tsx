@@ -1,6 +1,9 @@
 import { screen } from "@testing-library/react";
+import { vi } from "vitest";
 import { renderWithProviders } from "../../utils/testUtils";
 import Form from "./Form";
+
+const mockFunction = vi.fn();
 
 describe("Given a Form component", () => {
   describe("When it is rendered", () => {
@@ -17,7 +20,7 @@ describe("Given a Form component", () => {
         "I would like to remember...",
       ];
 
-      renderWithProviders(<Form />);
+      renderWithProviders(<Form onSubmit={mockFunction} />);
 
       labelNames.forEach((labelName) => {
         const field = screen.getByLabelText(labelName);
@@ -27,7 +30,7 @@ describe("Given a Form component", () => {
     test("Then it should show a button with the text 'Add book' inside", () => {
       const expectedText = "Add book";
 
-      renderWithProviders(<Form />);
+      renderWithProviders(<Form onSubmit={mockFunction} />);
 
       const button = screen.getByText(expectedText);
 

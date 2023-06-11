@@ -3,7 +3,11 @@ import { BookStructure } from "../../types";
 import Button from "../Button/Button";
 import FormStyled from "./FormStyled";
 
-const Form = (): React.ReactElement => {
+interface FormProps {
+  onSubmit: (bookData: BookStructure) => void;
+}
+
+const Form = ({ onSubmit }: FormProps): React.ReactElement => {
   const initialFormState: BookStructure = {
     frontPage: "",
     title: "",
@@ -29,8 +33,18 @@ const Form = (): React.ReactElement => {
     });
   };
 
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+    onSubmit(bookData);
+  };
+
   return (
-    <FormStyled className="form" autoComplete="off" noValidate>
+    <FormStyled
+      className="form"
+      autoComplete="off"
+      noValidate
+      onSubmit={handleOnSubmit}
+    >
       <div className="form__container">
         <label className="form__label" htmlFor="frontPage">
           URL frontpage image
@@ -91,8 +105,8 @@ const Form = (): React.ReactElement => {
           className="form__select"
           onChange={onChangeForm}
         >
-          <option value="read">Read</option>
-          <option value="unread">Unread</option>
+          <option value={true}>Read</option>
+          <option value={false}>Unread</option>
         </select>
         <label className="form__label" htmlFor="rating">
           Valoration (1-5)
@@ -115,11 +129,11 @@ const Form = (): React.ReactElement => {
           className="form__select"
           onChange={onChangeForm}
         >
-          <option value="read" className="form__option">
+          <option value="keep" className="form__option">
             Keep
           </option>
-          <option value="unread">Borrowed</option>
-          <option value="unread">Get rid</option>
+          <option value="borrowed">Borrowed</option>
+          <option value="get rid">Get rid</option>
         </select>
         <label className="form__label" htmlFor="cosmos">
           I would like to remember...

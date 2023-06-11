@@ -22,7 +22,7 @@ const Navbar = (): React.ReactElement => {
         </li>
         <li>
           <NavLink
-            to="/add-book"
+            to="/add"
             className="navbar__icon"
             title="add book"
             aria-label="add book"

@@ -17,7 +17,6 @@ const Button = ({
 }: ButtonProps): React.ReactElement => {
   return (
     <button
-      type="button"
       className={classname}
       onClick={actionOnClick}
       aria-label={ariaLabel}
