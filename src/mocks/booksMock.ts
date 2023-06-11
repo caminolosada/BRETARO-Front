@@ -48,7 +48,7 @@ export const addedBookMock: BookDataStructure = {
 export const createdBookMock: BookStructure = {
   title: "La uruguaya",
   author: "Pedro Mairal",
-  frontPage: "image_la_uruguaya.jpg",
+  frontPage: "https://imagessl3.casadellibro.com/a/l/t7/93/9788416213993.jpg",
   publicationYear: "2016",
   editorial: "Libros del Asteroide",
   status: true,

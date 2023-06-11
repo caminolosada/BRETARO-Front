@@ -68,7 +68,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
         </label>
         <input
           className="form__input"
-          type="text"
+          type="url"
           id="frontPage"
           value={bookData.frontPage}
           onChange={onChangeForm}
