@@ -52,13 +52,16 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
     }
   };
 
+  const disabledButton =
+    !bookData.frontPage ||
+    !bookData.title ||
+    !bookData.author ||
+    !bookData.publicationYear ||
+    !bookData.editorial ||
+    !bookData.destination;
+
   return (
-    <FormStyled
-      className="form"
-      autoComplete="off"
-      noValidate
-      onSubmit={handleOnSubmit}
-    >
+    <FormStyled className="form" autoComplete="off" onSubmit={handleOnSubmit}>
       <div className="form__container">
         <label className="form__label" htmlFor="frontPage">
           URL frontpage image
@@ -80,6 +83,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="title"
           value={bookData.title}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="author">
           Author
@@ -90,6 +94,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="author"
           value={bookData.author}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="publicationYear">
           Publication year
@@ -100,6 +105,8 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="publicationYear"
           value={bookData.publicationYear}
           onChange={onChangeForm}
+          required
+          maxLength={4}
         />
         <label className="form__label" htmlFor="editorial">
           Editorial
@@ -110,6 +117,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="editorial"
           value={bookData.editorial}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="status">
           Choose status
@@ -119,8 +127,8 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="status"
           className="form__select"
           onChange={onChangeStatus}
+          required
         >
-          <option hidden></option>
           <option value="read">Read</option>
           <option value="unread">Unread</option>
         </select>
@@ -133,7 +141,8 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="rating"
           value={bookData.rating}
           onChange={onChangeForm}
-          max={1}
+          min={1}
+          max={5}
         />
         <label className="form__label" htmlFor="destination">
           Choose destination
@@ -143,8 +152,8 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="destination"
           className="form__select"
           onChange={onChangeForm}
+          required
         >
-          <option hidden></option>
           <option value="keep" className="form__option">
             Keep
           </option>
@@ -161,7 +170,12 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           onChange={onChangeForm}
         />
       </div>
-      <Button classname="form__button" text="Add book" ariaLabel="Add button" />
+      <Button
+        classname="form__button"
+        text="Add book"
+        ariaLabel="Add button"
+        disabled={disabledButton}
+      />
     </FormStyled>
   );
 };

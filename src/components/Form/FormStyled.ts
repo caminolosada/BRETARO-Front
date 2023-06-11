@@ -54,6 +54,10 @@ const FormStyled = styled.form`
       display: flex;
       justify-content: center;
       align-items: center;
+
+      :disabled {
+        color: ${(props) => props.theme.colors.generalText + 50};
+      }
     }
   }
 `;
