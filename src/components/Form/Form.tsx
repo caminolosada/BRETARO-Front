@@ -38,6 +38,20 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
     onSubmit(bookData);
   };
 
+  const onChangeStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (event.target.value === "read") {
+      setBookData({
+        ...bookData,
+        status: true,
+      });
+    } else {
+      setBookData({
+        ...bookData,
+        status: false,
+      });
+    }
+  };
+
   return (
     <FormStyled
       className="form"
@@ -55,6 +69,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="frontPage"
           value={bookData.frontPage}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="title">
           Title
@@ -103,10 +118,11 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           name="status"
           id="status"
           className="form__select"
-          onChange={onChangeForm}
+          onChange={onChangeStatus}
         >
-          <option value={true}>Read</option>
-          <option value={false}>Unread</option>
+          <option hidden></option>
+          <option value="read">Read</option>
+          <option value="unread">Unread</option>
         </select>
         <label className="form__label" htmlFor="rating">
           Valoration (1-5)
@@ -117,8 +133,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           id="rating"
           value={bookData.rating}
           onChange={onChangeForm}
-          min={1}
-          max={5}
+          max={1}
         />
         <label className="form__label" htmlFor="destination">
           Choose destination
@@ -129,6 +144,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           className="form__select"
           onChange={onChangeForm}
         >
+          <option hidden></option>
           <option value="keep" className="form__option">
             Keep
           </option>
