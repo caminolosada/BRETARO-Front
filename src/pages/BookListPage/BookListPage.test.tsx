@@ -1,19 +1,26 @@
-import { screen, waitFor } from "@testing-library/react";
-import { LazyBookListPage } from "../../routers/lazyComponents";
+import { screen } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import BookListPage from "./BookListPage";
 
 describe("Given a BookListPage page", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a title with the text 'What is in your shelf?'", async () => {
+    test("Then it should show a title with the text 'What is in your shelf?'", () => {
       const expectedTitle = "What is in your shelf?";
 
-      renderWithProviders(wrapWithRouter(<LazyBookListPage />));
+      renderWithProviders(wrapWithRouter(<BookListPage />));
 
-      const title = await waitFor(() =>
-        screen.getByRole("heading", { name: expectedTitle })
-      );
-
+      const title = screen.getByRole("heading", { name: expectedTitle });
       expect(title).toBeInTheDocument();
+    });
+
+    test("Then it should show a button with the text 'Load more' inside", () => {
+      const expectedText = "Load more";
+
+      renderWithProviders(wrapWithRouter(<BookListPage />));
+
+      const loadMoreButton = screen.getByText(expectedText);
+
+      expect(loadMoreButton).toBeInTheDocument();
     });
   });
 });
