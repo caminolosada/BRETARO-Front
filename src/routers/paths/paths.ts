@@ -3,7 +3,7 @@ import { PathsStructure } from "../../types";
 const paths: PathsStructure = {
   app: "/",
   home: "/home",
-  addBook: "/add-book",
+  addBook: "/add",
 };
 
 export default paths;

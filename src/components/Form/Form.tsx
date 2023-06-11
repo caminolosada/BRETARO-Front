@@ -3,7 +3,11 @@ import { BookStructure } from "../../types";
 import Button from "../Button/Button";
 import FormStyled from "./FormStyled";
 
-const Form = (): React.ReactElement => {
+interface FormProps {
+  onSubmit: (bookData: BookStructure) => void;
+}
+
+const Form = ({ onSubmit }: FormProps): React.ReactElement => {
   const initialFormState: BookStructure = {
     frontPage: "",
     title: "",
@@ -29,8 +33,35 @@ const Form = (): React.ReactElement => {
     });
   };
 
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+    onSubmit(bookData);
+  };
+
+  const onChangeStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (event.target.value === "read") {
+      setBookData({
+        ...bookData,
+        status: true,
+      });
+    } else {
+      setBookData({
+        ...bookData,
+        status: false,
+      });
+    }
+  };
+
+  const disabledButton =
+    !bookData.frontPage ||
+    !bookData.title ||
+    !bookData.author ||
+    !bookData.publicationYear ||
+    !bookData.editorial ||
+    !bookData.destination;
+
   return (
-    <FormStyled className="form" autoComplete="off" noValidate>
+    <FormStyled className="form" autoComplete="off" onSubmit={handleOnSubmit}>
       <div className="form__container">
         <label className="form__label" htmlFor="frontPage">
           URL frontpage image
@@ -41,6 +72,7 @@ const Form = (): React.ReactElement => {
           id="frontPage"
           value={bookData.frontPage}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="title">
           Title
@@ -51,6 +83,7 @@ const Form = (): React.ReactElement => {
           id="title"
           value={bookData.title}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="author">
           Author
@@ -61,6 +94,7 @@ const Form = (): React.ReactElement => {
           id="author"
           value={bookData.author}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="publicationYear">
           Publication year
@@ -71,6 +105,8 @@ const Form = (): React.ReactElement => {
           id="publicationYear"
           value={bookData.publicationYear}
           onChange={onChangeForm}
+          required
+          maxLength={4}
         />
         <label className="form__label" htmlFor="editorial">
           Editorial
@@ -81,6 +117,7 @@ const Form = (): React.ReactElement => {
           id="editorial"
           value={bookData.editorial}
           onChange={onChangeForm}
+          required
         />
         <label className="form__label" htmlFor="status">
           Choose status
@@ -89,7 +126,8 @@ const Form = (): React.ReactElement => {
           name="status"
           id="status"
           className="form__select"
-          onChange={onChangeForm}
+          onChange={onChangeStatus}
+          required
         >
           <option value="read">Read</option>
           <option value="unread">Unread</option>
@@ -114,12 +152,13 @@ const Form = (): React.ReactElement => {
           id="destination"
           className="form__select"
           onChange={onChangeForm}
+          required
         >
-          <option value="read" className="form__option">
+          <option value="keep" className="form__option">
             Keep
           </option>
-          <option value="unread">Borrowed</option>
-          <option value="unread">Get rid</option>
+          <option value="borrowed">Borrowed</option>
+          <option value="get rid">Get rid</option>
         </select>
         <label className="form__label" htmlFor="cosmos">
           I would like to remember...
@@ -131,7 +170,12 @@ const Form = (): React.ReactElement => {
           onChange={onChangeForm}
         />
       </div>
-      <Button classname="form__button" text="Add book" ariaLabel="Add button" />
+      <Button
+        classname="form__button"
+        text="Add book"
+        ariaLabel="Add button"
+        disabled={disabledButton}
+      />
     </FormStyled>
   );
 };
