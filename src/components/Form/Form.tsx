@@ -14,7 +14,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
     author: "",
     publicationYear: "",
     editorial: "",
-    status: false,
+    status: true,
     rating: 0,
     destination: "",
     cosmos: "",
