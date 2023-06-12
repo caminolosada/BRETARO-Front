@@ -107,6 +107,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           onChange={onChangeForm}
           required
           maxLength={4}
+          pattern="[0-9]+"
         />
         <label className="form__label" htmlFor="editorial">
           Editorial
@@ -154,6 +155,7 @@ const Form = ({ onSubmit }: FormProps): React.ReactElement => {
           onChange={onChangeForm}
           required
         >
+          <option hidden>Choose an option</option>
           <option value="keep" className="form__option">
             Keep
           </option>
