@@ -45,7 +45,21 @@ describe("Given a BookCard component", () => {
       const expectedCardTitle = "El desorden que dejas";
 
       renderWithProviders(wrapWithRouter(<BookListPage />), {
-        books: { booksData: booksMocks },
+        books: {
+          booksData: booksMocks,
+          selectedBook: {
+            author: "",
+            cosmos: "",
+            destination: "",
+            editorial: "",
+            frontPage: "",
+            publicationYear: "",
+            rating: 0,
+            status: true,
+            title: "",
+            id: "",
+          },
+        },
       });
 
       const title = screen.getByRole("heading", { name: expectedCardTitle });
