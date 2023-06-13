@@ -109,7 +109,6 @@ const useBooks = () => {
             message: modalData.message.errorMyBook,
           })
         );
-        throw new Error("Can't get this book");
       }
     },
     [dispatch]

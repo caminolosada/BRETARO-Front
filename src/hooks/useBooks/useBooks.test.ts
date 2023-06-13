@@ -121,4 +121,42 @@ describe("Given a useBooks function", () => {
       expect(message).toBe(expectedMessage);
     });
   });
+
+  describe("When it calls the getMyBook function with a valid book id", () => {
+    test("Then it should return the book that corresponds to that id", async () => {
+      server.resetHandlers(...handlers);
+      const idBook = addedBookMock.id;
+      const expectedBook = addedBookMock;
+
+      const {
+        result: {
+          current: { getMyBook },
+        },
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
+
+      const myBook = await getMyBook(idBook);
+
+      expect(myBook).toStrictEqual(expectedBook);
+    });
+  });
+
+  describe("When it calls the getMyBook function with an invalid book id", () => {
+    test("Then it should show the feedback message 'Can't show this book now'", async () => {
+      server.resetHandlers(...errorHandlers);
+      const idBook = "647fa740ee528da72718451f";
+      const message = modalData.message.errorMyBook;
+
+      const {
+        result: {
+          current: { getMyBook },
+        },
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
+
+      await getMyBook(idBook);
+
+      const expectedMessage = store.getState().ui.modalState.message;
+
+      expect(message).toBe(expectedMessage);
+    });
+  });
 });

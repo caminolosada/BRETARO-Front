@@ -20,7 +20,7 @@ export const handlers = [
   }),
 
   rest.get(`${apiUrl}/books/:id`, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ myBook: { addedBookMock } }));
+    return res(ctx.status(200), ctx.json({ myBook: addedBookMock }));
   }),
 ];
 
