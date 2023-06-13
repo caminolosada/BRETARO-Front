@@ -22,12 +22,15 @@ const BookDetailPageStyled = styled.main`
     gap: 20px;
     margin-top: 20px;
 
-    &__valoration {
+    &__status {
       font-weight: ${(props) => props.theme.fontWeight.bold};
       font-size: ${(props) => props.theme.fontSize.large};
+    }
+
+    &__valoration {
       display: flex;
       flex-direction: row;
-      gap: 20px;
+      gap: 5px;
     }
 
     &__title {

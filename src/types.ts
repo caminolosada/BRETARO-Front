@@ -25,6 +25,7 @@ export interface modalDataStructure {
     erorAdd: string;
     errorRemove: string;
     errorEdit: string;
+    errorMyBook: string;
   };
 }
 

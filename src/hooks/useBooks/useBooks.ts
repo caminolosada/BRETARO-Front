@@ -88,7 +88,33 @@ const useBooks = () => {
     }
   };
 
-  return { getBooks, deleteBooks, createBook };
+  const getMyBook = useCallback(
+    async (id: string): Promise<BookStructure | undefined> => {
+      try {
+        dispatch(showLoadingActionCreator());
+        const {
+          data: { myBook },
+        } = await axios.get<{ myBook: BookDataStructure }>(
+          `${apiUrl}/books/${id}`
+        );
+
+        dispatch(hideLoadingActionCreator());
+        return myBook;
+      } catch {
+        dispatch(hideLoadingActionCreator());
+        dispatch(
+          showModalActionCreator({
+            isError: true,
+            isVisible: true,
+            message: modalData.message.errorMyBook,
+          })
+        );
+      }
+    },
+    [dispatch]
+  );
+
+  return { getBooks, deleteBooks, createBook, getMyBook };
 };
 
 export default useBooks;

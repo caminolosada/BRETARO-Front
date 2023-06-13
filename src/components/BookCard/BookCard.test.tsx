@@ -11,7 +11,7 @@ describe("Given a BookCard component", () => {
       const expectedAuthor = booksMocks[3].author;
 
       renderWithProviders(
-        <BookCard bookProps={booksMocks[3]} isLazy={"lazy"} />
+        wrapWithRouter(<BookCard bookProps={booksMocks[3]} isLazy={"lazy"} />)
       );
 
       const bookAuthor = screen.getByText(expectedAuthor);
@@ -21,7 +21,9 @@ describe("Given a BookCard component", () => {
 
     test("Then it should show a front page image with the alternative text 'El desorden que dejas front page'", () => {
       const expectedAlternativeText = `${booksMocks[0].title} front page`;
-      renderWithProviders(<BookCard bookProps={booksMocks[0]} />);
+      renderWithProviders(
+        wrapWithRouter(<BookCard bookProps={booksMocks[0]} />)
+      );
 
       const frontPage = screen.getByAltText(expectedAlternativeText);
 
@@ -32,7 +34,9 @@ describe("Given a BookCard component", () => {
   describe("When it is rendered", () => {
     test("Then it should show a delete button with an icon with the alternative text 'delete icon'", () => {
       const expectedAlternativeText = "delete icon";
-      renderWithProviders(<BookCard bookProps={booksMocks[0]} />);
+      renderWithProviders(
+        wrapWithRouter(<BookCard bookProps={booksMocks[0]} />)
+      );
 
       const deleteButton = screen.getByAltText(expectedAlternativeText);
 

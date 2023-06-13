@@ -66,7 +66,7 @@ export const addedBookMock: BookDataStructure = {
   frontPage: "image_la_uruguaya.jpg",
   publicationYear: "2016",
   editorial: "Libros del Asteroide",
-  status: true,
+  status: false,
   rating: 4,
   destination: "keep",
   cosmos:

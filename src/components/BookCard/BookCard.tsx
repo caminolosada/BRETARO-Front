@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useBooks from "../../hooks/useBooks/useBooks";
 import { useAppDispatch } from "../../store";
 import { deleteBooksActionCreator } from "../../store/books/booksSlice";
@@ -20,34 +21,36 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
   };
 
   return (
-    <BookCardStyled>
-      <img
-        src={bookProps.frontPage}
-        alt={`${bookProps.title} front page`}
-        className="card__image"
-        width="75"
-        height="120"
-        loading={isLazy}
-      />
-      <div className="info">
-        <h2 className="info__title">{bookProps.title}</h2>
-        <span className="info__author">{bookProps.author}</span>
-      </div>
-      <Button
-        classname="card__button"
-        ariaLabel="delete"
-        title="delete"
-        image={
-          <img
-            src="/images/delete-icon.svg"
-            alt="delete icon"
-            width={24}
-            height={24}
-          />
-        }
-        actionOnClick={handleOnClick}
-      />
-    </BookCardStyled>
+    <Link to={`/home/${bookProps.id}`}>
+      <BookCardStyled>
+        <img
+          src={bookProps.frontPage}
+          alt={`${bookProps.title} front page`}
+          className="card__image"
+          width="75"
+          height="120"
+          loading={isLazy}
+        />
+        <div className="info">
+          <h2 className="info__title">{bookProps.title}</h2>
+          <span className="info__author">{bookProps.author}</span>
+        </div>
+        <Button
+          classname="card__button"
+          ariaLabel="delete"
+          title="delete"
+          image={
+            <img
+              src="/images/delete-icon.svg"
+              alt="delete icon"
+              width={24}
+              height={24}
+            />
+          }
+          actionOnClick={handleOnClick}
+        />
+      </BookCardStyled>
+    </Link>
   );
 };
 
