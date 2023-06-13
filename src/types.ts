@@ -33,4 +33,5 @@ export interface PathsStructure {
   app: string;
   home: string;
   addBook: string;
+  detail: string;
 }
