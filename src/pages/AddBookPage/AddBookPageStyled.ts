@@ -8,7 +8,7 @@ const AddBookPageStyled = styled.main`
   .title {
     color: ${(props) => props.theme.colors.generalText};
     font-size: ${(props) => props.theme.fontSize.medium};
-    margin-top: 30px;
+    margin-top: 50px;
   }
 `;
 
