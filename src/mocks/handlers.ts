@@ -18,6 +18,10 @@ export const handlers = [
   rest.post(`${apiUrl}/books/add`, (_req, res, ctx) => {
     return res(ctx.status(201), ctx.json({ newBook: addedBookMock }));
   }),
+
+  rest.get(`${apiUrl}/books/:id`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ myBook: { addedBookMock } }));
+  }),
 ];
 
 export const errorHandlers = [
@@ -36,6 +40,13 @@ export const errorHandlers = [
     return res(
       ctx.status(400),
       ctx.json({ message: modalData.message.erorAdd })
+    );
+  }),
+
+  rest.get(`${apiUrl}/books/:id`, (_req, res, ctx) => {
+    return res(
+      ctx.status(404),
+      ctx.json({ message: modalData.message.errorMyBook })
     );
   }),
 ];
