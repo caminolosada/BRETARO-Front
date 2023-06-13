@@ -6,6 +6,7 @@ import {
   booksReducer,
   deleteBooksActionCreator,
   loadBooksActionCreator,
+  loadSelectedBookActionCreator,
 } from "./booksSlice";
 
 describe("Given a loadBooks reducer", () => {
@@ -15,6 +16,18 @@ describe("Given a loadBooks reducer", () => {
 
       const currentBooksState: BooksState = {
         booksData: currentEmptyState,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          publicationYear: "",
+          rating: 0,
+          status: true,
+          title: "",
+          id: "",
+        },
       };
 
       const loadBooksAction = loadBooksActionCreator(booksMocks);
@@ -39,9 +52,33 @@ describe("Given a deleteBooks reducer", () => {
     test("Then it should return a collection of books without 'El desorden que dejas'", () => {
       const currentBooksState: BooksState = {
         booksData: booksMocks,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          publicationYear: "",
+          rating: 0,
+          status: true,
+          title: "",
+          id: "",
+        },
       };
       const expectedNewState: BooksState = {
         booksData: [booksMocks[1], booksMocks[2], booksMocks[3]],
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          publicationYear: "",
+          rating: 0,
+          status: true,
+          title: "",
+          id: "",
+        },
       };
 
       const deleteBooksAction = deleteBooksActionCreator(booksMocks[0].id);
@@ -60,16 +97,76 @@ describe("Given a addBooks reducer", () => {
     test("Then it should return a collection of book with the new book titled 'La uruguaya'", () => {
       const currentBooksState: BooksState = {
         booksData: booksMocks,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          publicationYear: "",
+          rating: 0,
+          status: true,
+          title: "",
+          id: "",
+        },
       };
 
       const expectedNewState: BooksState = {
         booksData: [...booksMocks, addedBookMock],
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          publicationYear: "",
+          rating: 0,
+          status: true,
+          title: "",
+          id: "",
+        },
       };
 
       const addBookAction = addBooksActionCreator(addedBookMock);
       const newState: BooksState = booksReducer(
         currentBooksState,
         addBookAction
+      );
+
+      expect(newState).toStrictEqual(expectedNewState);
+    });
+  });
+});
+
+describe("Given a loadSelectedBook reducer", () => {
+  describe("When it receives and empty state of selectedBook and a load selected book action with the book 'La uruguaya'", () => {
+    test("Then it should return the new state with book 'La uruguaya'", () => {
+      const currentBooksState: BooksState = {
+        booksData: booksMocks,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          publicationYear: "",
+          rating: 0,
+          status: true,
+          title: "",
+          id: "",
+        },
+      };
+
+      const expectedNewState: BooksState = {
+        booksData: booksMocks,
+        selectedBook: addedBookMock,
+      };
+
+      const loadSelectedAction = loadSelectedBookActionCreator(addedBookMock);
+
+      const newState: BooksState = booksReducer(
+        currentBooksState,
+        loadSelectedAction
       );
 
       expect(newState).toStrictEqual(expectedNewState);

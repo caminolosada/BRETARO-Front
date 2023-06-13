@@ -4,6 +4,18 @@ import { BooksState } from "../types";
 
 const initialBooksState: BooksState = {
   booksData: [],
+  selectedBook: {
+    author: "",
+    cosmos: "",
+    destination: "",
+    editorial: "",
+    frontPage: "",
+    publicationYear: "",
+    rating: 0,
+    status: true,
+    title: "",
+    id: "",
+  },
 };
 
 export const booksSlice = createSlice({
@@ -33,6 +45,13 @@ export const booksSlice = createSlice({
       ...currentBooksState,
       booksData: [...currentBooksState.booksData, action.payload],
     }),
+    loadSelectedBook: (
+      currentBooksState,
+      action: PayloadAction<BookDataStructure>
+    ): BooksState => ({
+      ...currentBooksState,
+      selectedBook: action.payload,
+    }),
   },
 });
 
@@ -40,5 +59,6 @@ export const {
   loadBooks: loadBooksActionCreator,
   deleteBooks: deleteBooksActionCreator,
   addBooks: addBooksActionCreator,
+  loadSelectedBook: loadSelectedBookActionCreator,
 } = booksSlice.actions;
 export const booksReducer = booksSlice.reducer;
