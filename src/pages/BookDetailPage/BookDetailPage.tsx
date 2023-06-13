@@ -1,36 +1,56 @@
+import { useParams } from "react-router-dom";
+import useBooks from "../../hooks/useBooks/useBooks";
+import { useAppDispatch, useAppSelector } from "../../store";
 import BookDetailPageStyled from "./BookDetailPageStyled";
+import { loadSelectedBookActionCreator } from "../../store/books/booksSlice";
+import { BookDataStructure } from "../../types";
+import { useEffect } from "react";
 
 const BookDetailPage = (): React.ReactElement => {
+  const { id } = useParams();
+  const { getMyBook } = useBooks();
+  const dispatch = useAppDispatch();
+  const myBook = useAppSelector((state) => state.books.selectedBook);
+
+  useEffect(() => {
+    (async () => {
+      const book = await getMyBook(id as string);
+      dispatch(loadSelectedBookActionCreator(book as BookDataStructure));
+    })();
+  }, [dispatch, getMyBook, id]);
+
   return (
     <BookDetailPageStyled>
       <img
-        src="https://res.cloudinary.com/dg1skxpqt/image/upload/v1685524428/el-desorden_xvuti4.webp"
+        src={myBook.frontPage}
         alt="frontpage"
         width={240}
         height={310}
         className="frontpage"
       />
       <div className="info">
+        <span className="info__status">
+          {myBook.status ? `Read` : `Unread`}
+        </span>
         <div className="info__valoration">
-          <span>Read</span>
+          <span>{myBook.rating}</span>
           <img
             className="info__valoration rating"
-            src="/public/images/valoration.svg"
+            src="/images/valoration.svg"
             width={16}
             height={16}
             alt="valoration"
           />
         </div>
-        <h1 className="info__title">El desorden que dejas</h1>
-        <h2 className="info__author">Carlos Montero</h2>
-        <span className="info__year">2016</span>
-        <span className="info__editorial">Espasa</span>
-        <span className="info__destination">Destination: KEEP</span>
+        <h1 className="info__title">{myBook.title}</h1>
+        <h2 className="info__author">{myBook.author}</h2>
+        <span className="info__year">{myBook.publicationYear}</span>
+        <span className="info__editorial">{myBook.editorial}</span>
+        <span className="info__destination">
+          Destination: {myBook.destination}
+        </span>
         <div className="info__cosmos">
-          <p>
-            Entre los misterios de un pueblo y la intriga de un instituto, las
-            vidas de dos mujeres se entrelazan en un peligroso juego.
-          </p>
+          <p>{myBook.cosmos}</p>
         </div>
       </div>
     </BookDetailPageStyled>
