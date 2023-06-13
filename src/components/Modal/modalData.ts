@@ -11,6 +11,7 @@ const modalData: modalDataStructure = {
     erorAdd: "Couldn't add this book on your shelf",
     errorRemove: "Couldn't remove this book from your shelf",
     errorEdit: "Couldn't edit this book",
+    errorMyBook: "Can't show this book now",
   },
 };
 
