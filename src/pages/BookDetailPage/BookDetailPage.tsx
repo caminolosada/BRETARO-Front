@@ -5,7 +5,7 @@ const BookDetailPage = (): React.ReactElement => {
     <BookDetailPageStyled>
       <img
         src="https://res.cloudinary.com/dg1skxpqt/image/upload/v1685524428/el-desorden_xvuti4.webp"
-        alt=""
+        alt="frontpage"
         width={240}
         height={310}
         className="frontpage"
