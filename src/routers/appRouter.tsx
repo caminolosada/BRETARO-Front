@@ -3,11 +3,11 @@ import App from "../components/App/App";
 import { Suspense } from "react";
 import {
   LazyAddBookPage,
+  LazyBookDetailPage,
   LazyBookListPage,
   LazyNotFoundPage,
 } from "./lazyComponents";
 import paths from "./paths/paths";
-import BookDetailPage from "../pages/BookDetailPage/BookDetailPage";
 
 const routes: RouteObject[] = [
   {
@@ -36,16 +36,20 @@ const routes: RouteObject[] = [
         ),
       },
       {
+        path: paths.detail,
+        element: (
+          <Suspense>
+            <LazyBookDetailPage />
+          </Suspense>
+        ),
+      },
+      {
         path: "/*",
         element: (
           <Suspense>
             <LazyNotFoundPage />
           </Suspense>
         ),
-      },
-      {
-        path: "/home/:id",
-        element: <BookDetailPage />,
       },
     ],
   },
