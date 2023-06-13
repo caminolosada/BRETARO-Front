@@ -4,7 +4,6 @@ import useBooks from "../../hooks/useBooks/useBooks";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { loadBooksActionCreator } from "../../store/books/booksSlice";
 import BookListPageStyled from "./BookListPageStyled";
-import LoadMore from "../../components/LoadMore/LoadMore";
 
 const BookListPage = (): React.ReactElement => {
   const books = useAppSelector((state) => state.books.booksData);
@@ -24,7 +23,6 @@ const BookListPage = (): React.ReactElement => {
     <BookListPageStyled>
       <h1 className="title">What is in your shelf?</h1>
       <BooksList booksProps={books} />
-      <LoadMore />
     </BookListPageStyled>
   );
 };
