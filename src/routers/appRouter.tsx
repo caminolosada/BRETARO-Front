@@ -44,7 +44,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/detail",
+        path: "/home/:id",
         element: <BookDetailPage />,
       },
     ],
