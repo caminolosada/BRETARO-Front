@@ -29,6 +29,34 @@ export const booksMocks: BookDataStructure[] = [
     cosmos:
       "Morir es una experiencia única y fascinante y también algo muy divertido, aunque no para el muerto, lógicamente.",
   },
+  {
+    id: "648703abee528da72718456f",
+    title: "Os vellos non deben de namorarse",
+    author: "Castelao",
+    frontPage:
+      "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686086557/19375522579_usnvzf.webp",
+    publicationYear: "1941",
+    editorial: "Galaxia",
+    status: true,
+    rating: 4,
+    destination: "keep",
+    cosmos:
+      "Unha comedia teatral en tres actos que satiriza as relacións amorosas na terceira idade, coas súas complicacións e enredos.",
+  },
+  {
+    id: "648703abee528da72718457a",
+    title: "El infinito en un junco",
+    author: "Irene Vallejo",
+    frontPage:
+      "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686086788/9788466358293_w1z6qo.webp",
+    publicationYear: "2019",
+    editorial: "Siruela",
+    status: true,
+    rating: 4,
+    destination: "keep",
+    cosmos:
+      "Una historia fascinante sobre el poder de los libros y la importancia de la escritura a lo largo de la historia de la humanidad.",
+  },
 ];
 
 export const addedBookMock: BookDataStructure = {

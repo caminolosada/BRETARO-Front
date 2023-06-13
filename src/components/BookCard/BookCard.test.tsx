@@ -7,10 +7,12 @@ import BookListPage from "../../pages/BookListPage/BookListPage";
 
 describe("Given a BookCard component", () => {
   describe("When it receives the book 'El desorden que dejas'", () => {
-    test("Then it should show the information that its author is 'Carlos Montero'", () => {
-      const expectedAuthor = booksMocks[0].author;
+    test("Then it should show the information that its author is 'Irene Vallejo'", () => {
+      const expectedAuthor = booksMocks[3].author;
 
-      renderWithProviders(<BookCard bookProps={booksMocks[0]} />);
+      renderWithProviders(
+        <BookCard bookProps={booksMocks[3]} isLazy={"lazy"} />
+      );
 
       const bookAuthor = screen.getByText(expectedAuthor);
 

@@ -9,8 +9,8 @@ import {
 } from "./booksSlice";
 
 describe("Given a loadBooks reducer", () => {
-  describe("When it receives an empty books state and an action to load two books", () => {
-    test("Then it should return a list with two books", () => {
+  describe("When it receives an empty books state and an action to load four books", () => {
+    test("Then it should return a list with four books", () => {
       const currentEmptyState: BookDataStructure[] = [];
 
       const currentBooksState: BooksState = {
@@ -41,7 +41,7 @@ describe("Given a deleteBooks reducer", () => {
         booksData: booksMocks,
       };
       const expectedNewState: BooksState = {
-        booksData: [booksMocks[1]],
+        booksData: [booksMocks[1], booksMocks[2], booksMocks[3]],
       };
 
       const deleteBooksAction = deleteBooksActionCreator(booksMocks[0].id);
