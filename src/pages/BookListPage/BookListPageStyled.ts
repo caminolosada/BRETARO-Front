@@ -7,7 +7,8 @@ const BookListPageStyled = styled.main`
   .title {
     color: ${(props) => props.theme.colors.generalText};
     font-size: ${(props) => props.theme.fontSize.medium};
-    margin-top: 70px;
+    margin-top: 50px;
+    margin-bottom: 20px;
   }
 `;
 
