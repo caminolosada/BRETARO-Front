@@ -11,7 +11,7 @@ const BooksList = ({ booksProps }: BooksListProps): React.ReactElement => {
     <BookListStyled className="books-list">
       {booksProps.map((book, index) => (
         <li className="books-list__card" key={book.id}>
-          <BookCard bookProps={book} isLazy={index === 0 ? "eager" : "lazy"} />
+          <BookCard bookProps={book} isLazy={index < 3 ? "eager" : "lazy"} />
         </li>
       ))}
     </BookListStyled>

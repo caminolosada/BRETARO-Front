@@ -7,6 +7,7 @@ import {
   LazyNotFoundPage,
 } from "./lazyComponents";
 import paths from "./paths/paths";
+import BookDetailPage from "../pages/BookDetailPage/BookDetailPage";
 
 const routes: RouteObject[] = [
   {
@@ -41,6 +42,10 @@ const routes: RouteObject[] = [
             <LazyNotFoundPage />
           </Suspense>
         ),
+      },
+      {
+        path: "/detail",
+        element: <BookDetailPage />,
       },
     ],
   },
