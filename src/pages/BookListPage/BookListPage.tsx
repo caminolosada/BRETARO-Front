@@ -21,6 +21,7 @@ const BookListPage = (): React.ReactElement => {
 
   return (
     <BookListPageStyled>
+      <h2 className="greeting">Hi, reader!</h2>
       <h1 className="title">What is in your shelf?</h1>
       <BooksList booksProps={books} />
     </BookListPageStyled>

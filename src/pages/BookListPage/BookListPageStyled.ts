@@ -7,8 +7,14 @@ const BookListPageStyled = styled.main`
   .title {
     color: ${(props) => props.theme.colors.generalText};
     font-size: ${(props) => props.theme.fontSize.medium};
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .greeting {
+    color: ${(props) => props.theme.colors.generalText};
+    font-size: ${(props) => props.theme.fontSize.small};
+    margin-top: 40px;
   }
 `;
 
