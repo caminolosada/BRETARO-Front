@@ -4,7 +4,7 @@ const paths: PathsStructure = {
   app: "/",
   home: "/home",
   addBook: "/add",
-  detail: "/home/:id",
+  detail: "/books/:id",
 };
 
 export default paths;

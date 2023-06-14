@@ -22,7 +22,7 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
 
   return (
     <BookCardStyled>
-      <Link className="card-link" to={`/home/${bookProps.id}`}>
+      <Link className="card-link" to={`/books/${bookProps.id}`}>
         <img
           src={bookProps.frontPage}
           alt={`${bookProps.title} front page`}
