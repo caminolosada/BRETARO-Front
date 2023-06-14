@@ -31,8 +31,8 @@ const BookCardStyled = styled.article`
 
   .card__button {
     position: absolute;
-    right: 24px;
-    bottom: 24px;
+    right: 10px;
+    bottom: 10px;
   }
 
   .card-link {
