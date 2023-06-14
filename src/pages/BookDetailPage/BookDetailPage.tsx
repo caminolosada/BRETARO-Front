@@ -4,20 +4,26 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import BookDetailPageStyled from "./BookDetailPageStyled";
 import { loadSelectedBookActionCreator } from "../../store/books/booksSlice";
 import { BookDataStructure } from "../../types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const BookDetailPage = (): React.ReactElement => {
   const { id } = useParams();
   const { getMyBook } = useBooks();
   const dispatch = useAppDispatch();
   const myBook = useAppSelector((state) => state.books.selectedBook);
+  const [rating, setRating] = useState<string[]>([]);
 
   useEffect(() => {
     (async () => {
       const book = await getMyBook(id as string);
+
       dispatch(loadSelectedBookActionCreator(book as BookDataStructure));
     })();
   }, [dispatch, getMyBook, id]);
+
+  useEffect(() => {
+    setRating(() => new Array(myBook.rating).fill("*"));
+  }, [myBook.rating]);
 
   return (
     <BookDetailPageStyled>
@@ -33,14 +39,16 @@ const BookDetailPage = (): React.ReactElement => {
           {myBook.status ? `Read` : `Unread`}
         </span>
         <div className="info__valoration">
-          <span>{myBook.rating}</span>
-          <img
-            className="info__valoration rating"
-            src="/images/valoration.svg"
-            width={16}
-            height={16}
-            alt="valoration"
-          />
+          {rating.map((_rate, positionStar) => (
+            <img
+              key={positionStar}
+              className="info__valoration rating"
+              src="/images/valoration.svg"
+              width={16}
+              height={16}
+              alt="valoration"
+            />
+          ))}
         </div>
         <h1 className="info__title">{myBook.title}</h1>
         <h2 className="info__author">{myBook.author}</h2>

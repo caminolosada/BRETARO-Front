@@ -36,6 +36,7 @@ const BookDetailPageStyled = styled.main`
     &__title {
       font-weight: ${(props) => props.theme.fontWeight.bold};
       font-size: ${(props) => props.theme.fontSize.large};
+      text-align: center;
     }
 
     &__cosmos {

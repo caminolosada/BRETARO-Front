@@ -22,7 +22,7 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
 
   return (
     <BookCardStyled>
-      <Link to={`/home/${bookProps.id}`}>
+      <Link className="card-link" to={`/home/${bookProps.id}`}>
         <img
           src={bookProps.frontPage}
           alt={`${bookProps.title} front page`}
@@ -31,11 +31,11 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
           height="120"
           loading={isLazy}
         />
+        <div className="info">
+          <h2 className="info__title">{bookProps.title}</h2>
+          <span className="info__author">{bookProps.author}</span>
+        </div>
       </Link>
-      <div className="info">
-        <h2 className="info__title">{bookProps.title}</h2>
-        <span className="info__author">{bookProps.author}</span>
-      </div>
       <Button
         classname="card__button"
         ariaLabel="delete"

@@ -21,6 +21,7 @@ const BookCardStyled = styled.article`
     gap: 10px;
     color: ${(props) => props.theme.colors.generalText};
     font-size: ${(props) => props.theme.fontSize.small};
+    padding-left: 10px;
 
     &__title {
       overflow: hidden;
@@ -32,6 +33,11 @@ const BookCardStyled = styled.article`
     position: absolute;
     right: 24px;
     bottom: 24px;
+  }
+
+  .card-link {
+    display: flex;
+    width: 100%;
   }
 `;
 
