@@ -13,7 +13,7 @@ const Navbar = (): React.ReactElement => {
             aria-label="home"
           >
             <img
-              src="./images/home-icon.svg"
+              src="/images/home-icon.svg"
               alt="home icon"
               width={48}
               height={48}
@@ -28,7 +28,7 @@ const Navbar = (): React.ReactElement => {
             aria-label="add book"
           >
             <img
-              src="./images/add-book-icon.svg"
+              src="/images/add-book-icon.svg"
               alt="add book icon"
               width={48}
               height={48}

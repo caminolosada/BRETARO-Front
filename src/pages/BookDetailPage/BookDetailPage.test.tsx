@@ -27,7 +27,7 @@ describe("Given a BookDetailPage", () => {
       });
 
       const text = screen.getByText(expectedText);
-      screen.debug();
+
       expect(text).toBeInTheDocument;
     });
   });
