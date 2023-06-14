@@ -12,6 +12,7 @@ const BookListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    window.scroll(0, 0);
     (async () => {
       const books = await getBooks();
 
