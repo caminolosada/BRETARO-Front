@@ -25,6 +25,10 @@ const BookDetailPage = (): React.ReactElement => {
     setRating(() => new Array(myBook.rating).fill("*"));
   }, [myBook.rating]);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  });
+
   return (
     <BookDetailPageStyled>
       <img
