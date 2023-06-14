@@ -44,8 +44,8 @@ const BookCard = ({ bookProps, isLazy }: BookCardProps): React.ReactElement => {
           <img
             src="/images/delete-icon.svg"
             alt="delete icon"
-            width={24}
-            height={24}
+            width={48}
+            height={48}
           />
         }
         actionOnClick={handleOnClick}
