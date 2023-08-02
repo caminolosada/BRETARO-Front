@@ -114,7 +114,39 @@ const useBooks = () => {
     [dispatch]
   );
 
-  return { getBooks, deleteBooks, createBook, getMyBook };
+  const editBook = async (
+    bookData: BookDataStructure
+  ): Promise<BookStructure | undefined> => {
+    try {
+      dispatch(showLoadingActionCreator());
+      const {
+        data: { editedBook },
+      } = await axios.put<{ editedBook: BookDataStructure }>(
+        `${apiUrl}/books`,
+        bookData
+      );
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          isError: false,
+          message: modalData.message.okEdit,
+          isVisible: true,
+        })
+      );
+      return editedBook;
+    } catch {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          isError: true,
+          message: modalData.message.errorEdit,
+          isVisible: true,
+        })
+      );
+    }
+  };
+
+  return { getBooks, deleteBooks, createBook, getMyBook, editBook };
 };
 
 export default useBooks;
