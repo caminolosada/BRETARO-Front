@@ -6,6 +6,7 @@ import {
   LazyBookDetailPage,
   LazyBookListPage,
   LazyNotFoundPage,
+  LazyUpdateBookPage,
 } from "./lazyComponents";
 import paths from "./paths/paths";
 
@@ -40,6 +41,14 @@ const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyBookDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: paths.editBook,
+        element: (
+          <Suspense>
+            <LazyUpdateBookPage />
           </Suspense>
         ),
       },
