@@ -122,7 +122,7 @@ const useBooks = () => {
       const {
         data: { editedBook },
       } = await axios.put<{ editedBook: BookDataStructure }>(
-        `${apiUrl}/books}`,
+        `${apiUrl}/books`,
         bookData
       );
       dispatch(hideLoadingActionCreator());
