@@ -6,7 +6,7 @@ import { createdBookMock } from "../../mocks/booksMock";
 import modalData from "../../components/Modal/modalData";
 import { store } from "../../store";
 
-describe("Given a AddBookPage", () => {
+describe("Given an AddBookPage", () => {
   describe("When it is rendered", () => {
     test("Then it should show a title with the text 'Something new to add in your shelve?'", () => {
       const expectedTitle = "Something new to add in your shelve?";

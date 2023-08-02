@@ -34,4 +34,5 @@ export interface PathsStructure {
   home: string;
   addBook: string;
   detail: string;
+  editBook: string;
 }
