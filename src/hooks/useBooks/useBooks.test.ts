@@ -3,6 +3,7 @@ import {
   addedBookMock,
   booksMocks,
   createdBookMock,
+  errorEditMock,
 } from "../../mocks/booksMock";
 import useBooks from "./useBooks";
 import { server } from "../../mocks/server";
@@ -46,7 +47,7 @@ describe("Given a useBooks function", () => {
       server.resetHandlers(...handlers);
 
       const bookId = booksMocks[0].id;
-      const message = modalData.message.okDeleted;
+      const expectedMessage = modalData.message.okDeleted;
 
       const {
         result: {
@@ -56,9 +57,9 @@ describe("Given a useBooks function", () => {
 
       await deleteBooks(bookId);
 
-      const expectedMessage = store.getState().ui.modalState.message;
+      const message = store.getState().ui.modalState.message;
 
-      expect(message).toBe(expectedMessage);
+      expect(expectedMessage).toBe(message);
     });
 
     describe("When it calls the deleteBooks function with a incorrect id", () => {
@@ -66,7 +67,7 @@ describe("Given a useBooks function", () => {
         server.resetHandlers(...errorHandlers);
 
         const errorId = "sdkfnsdfl";
-        const message = modalData.message.errorRemove;
+        const expectedMessage = modalData.message.errorRemove;
 
         const {
           result: {
@@ -76,9 +77,9 @@ describe("Given a useBooks function", () => {
 
         await deleteBooks(errorId);
 
-        const expectedMessage = store.getState().ui.modalState.message;
+        const message = store.getState().ui.modalState.message;
 
-        expect(message).toBe(expectedMessage);
+        expect(expectedMessage).toBe(message);
       });
     });
   });
@@ -106,7 +107,7 @@ describe("Given a useBooks function", () => {
       server.resetHandlers(...errorHandlers);
 
       createdBookMock.author = "";
-      const message = modalData.message.erorAdd;
+      const expectedMessage = modalData.message.erorAdd;
 
       const {
         result: {
@@ -116,9 +117,9 @@ describe("Given a useBooks function", () => {
 
       await createBook(createdBookMock);
 
-      const expectedMessage = store.getState().ui.modalState.message;
+      const message = store.getState().ui.modalState.message;
 
-      expect(message).toBe(expectedMessage);
+      expect(expectedMessage).toBe(message);
     });
   });
 
@@ -144,7 +145,7 @@ describe("Given a useBooks function", () => {
     test("Then it should show the feedback message 'Can't show this book now'", async () => {
       server.resetHandlers(...errorHandlers);
       const idBook = "647fa740ee528da72718451f";
-      const message = modalData.message.errorMyBook;
+      const expectedMessage = modalData.message.errorMyBook;
 
       const {
         result: {
@@ -154,7 +155,47 @@ describe("Given a useBooks function", () => {
 
       await getMyBook(idBook);
 
-      const expectedMessage = store.getState().ui.modalState.message;
+      const message = store.getState().ui.modalState.message;
+
+      expect(expectedMessage).toBe(message);
+    });
+  });
+
+  describe("When it calls the editBook function with a valid book data to update", () => {
+    test("Then it should show a modal with the message 'You book has been successfully modified'", async () => {
+      server.resetHandlers(...handlers);
+      const bookData = addedBookMock;
+      const expectedMessage = modalData.message.okEdit;
+
+      const {
+        result: {
+          current: { editBook },
+        },
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
+
+      await editBook(bookData);
+
+      const message = store.getState().ui.modalState.message;
+
+      expect(message).toBe(expectedMessage);
+    });
+  });
+
+  describe("When it calls the editBook function with an invalid book data to update", () => {
+    test("Then it should show the message 'Couldn't edit this book'", async () => {
+      server.resetHandlers(...errorHandlers);
+      const expectedMessage = modalData.message.errorEdit;
+      const errorDataBook = errorEditMock;
+
+      const {
+        result: {
+          current: { editBook },
+        },
+      } = renderHook(() => useBooks(), { wrapper: wrapper });
+
+      await editBook(errorDataBook);
+
+      const message = store.getState().ui.modalState.message;
 
       expect(message).toBe(expectedMessage);
     });

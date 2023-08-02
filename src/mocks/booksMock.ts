@@ -85,3 +85,17 @@ export const createdBookMock: BookStructure = {
   cosmos:
     "Un escritor argentino se embarca en un viaje a Montevideo que lo llevará a cuestionarse su vida, su matrimonio y sus ambiciones literarias.",
 };
+
+export const errorEditMock: BookDataStructure = {
+  id: "errorId",
+  title: "La uruguaya",
+  author: "Pedro Mairal",
+  frontPage: "image_la_uruguaya.jpg",
+  publicationYear: "2016",
+  editorial: "Libros del Asteroide",
+  status: false,
+  rating: 4,
+  destination: "keep",
+  cosmos:
+    "Un escritor argentino se embarca en un viaje a Montevideo que lo llevará a cuestionarse su vida, su matrimonio y sus ambiciones literarias.",
+};
