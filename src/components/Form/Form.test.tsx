@@ -21,7 +21,9 @@ describe("Given a Form component", () => {
   ];
   describe("When it is rendered", () => {
     test("Then it should show the fields 'URL frontpage image', 'Title', 'Author', 'Publication year', 'Editorial', 'Choose status', 'Valoration (1-5)', 'Choose destination'and 'I would like to remember...'", () => {
-      renderWithProviders(<Form onSubmit={mockFunction} />);
+      renderWithProviders(
+        <Form onSubmit={mockFunction} textButton="Add book" />
+      );
 
       labelNames.forEach((labelName) => {
         const field = screen.getByLabelText(labelName);
@@ -31,7 +33,9 @@ describe("Given a Form component", () => {
     test("Then it should show a button dissabled with the text 'Add book' inside", () => {
       const expectedText = "Add book";
 
-      renderWithProviders(<Form onSubmit={mockFunction} />);
+      renderWithProviders(
+        <Form onSubmit={mockFunction} textButton="Add book" />
+      );
 
       const button = screen.getByText(expectedText);
 
@@ -41,7 +45,9 @@ describe("Given a Form component", () => {
 
   describe("When it is rendered and all its fields are completed", () => {
     test("Then button 'Add book' should be enabled", async () => {
-      renderWithProviders(<Form onSubmit={mockFunction} />);
+      renderWithProviders(
+        <Form onSubmit={mockFunction} textButton="Add book" />
+      );
 
       const urlInput = screen.getByLabelText(labelNames[0]);
       const titleInput = screen.getByLabelText(labelNames[1]);
@@ -85,7 +91,9 @@ describe("Given a Form component", () => {
   describe("When it is rendered and receives book data, as the title 'El desorden que dejas' and the editorial 'Espasa'", () => {
     test("Then it should show the book title and editorial on the corresponding inputs", () => {
       const bookData = booksMocks[0];
-      renderWithProviders(<Form onSubmit={mockFunction} book={bookData} />);
+      renderWithProviders(
+        <Form onSubmit={mockFunction} book={bookData} textButton="Add book" />
+      );
 
       const titleInput = screen.getByLabelText(labelNames[1]);
       const editorialInput = screen.getByLabelText(labelNames[4]);

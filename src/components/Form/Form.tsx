@@ -6,9 +6,14 @@ import FormStyled from "./FormStyled";
 interface FormProps {
   onSubmit: (bookData: BookStructure) => void;
   book?: BookDataStructure;
+  textButton: string;
 }
 
-const Form = ({ onSubmit, book }: FormProps): React.ReactElement => {
+const Form = ({
+  onSubmit,
+  book,
+  textButton,
+}: FormProps): React.ReactElement => {
   const initialFormState: BookStructure = {
     frontPage: book ? book.frontPage : "",
     title: book ? book.title : "",
@@ -175,7 +180,7 @@ const Form = ({ onSubmit, book }: FormProps): React.ReactElement => {
       </div>
       <Button
         classname="form__button"
-        text="Add book"
+        text={textButton}
         ariaLabel="Add button"
         disabled={disabledButton}
       />
