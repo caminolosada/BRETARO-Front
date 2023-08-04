@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { renderWithProviders } from "../../utils/testUtils";
 import Form from "./Form";
-import { createdBookMock } from "../../mocks/booksMock";
+import { booksMocks, createdBookMock } from "../../mocks/booksMock";
 
 const mockFunction = vi.fn();
 
@@ -79,6 +79,19 @@ describe("Given a Form component", () => {
       const button = screen.getByText(buttonName);
 
       expect(button).toBeEnabled();
+    });
+  });
+
+  describe("When it is rendered and receives book data, as the title 'El desorden que dejas' and the editorial 'Espasa'", () => {
+    test("Then it should show the book title and editorial on the corresponding inputs", () => {
+      const bookData = booksMocks[0];
+      renderWithProviders(<Form onSubmit={mockFunction} book={bookData} />);
+
+      const titleInput = screen.getByLabelText(labelNames[1]);
+      const editorialInput = screen.getByLabelText(labelNames[4]);
+
+      expect(titleInput).toHaveValue(bookData.title);
+      expect(editorialInput).toHaveValue(bookData.editorial);
     });
   });
 });
