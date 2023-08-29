@@ -181,7 +181,7 @@ const Form = ({
       <Button
         classname="form__button"
         text={textButton}
-        ariaLabel="Add button"
+        ariaLabel="Submit button"
         disabled={disabledButton}
       />
     </FormStyled>

@@ -19,7 +19,7 @@ describe("Given a Form component", () => {
     "Choose destination",
     "I would like to remember...",
   ];
-  describe("When it is rendered", () => {
+  describe("When it is rendered on the AddBookPage", () => {
     test("Then it should show the fields 'URL frontpage image', 'Title', 'Author', 'Publication year', 'Editorial', 'Choose status', 'Valoration (1-5)', 'Choose destination'and 'I would like to remember...'", () => {
       renderWithProviders(
         <Form onSubmit={mockFunction} textButton="Add book" />
@@ -30,7 +30,7 @@ describe("Given a Form component", () => {
         expect(field).toBeInTheDocument();
       });
     });
-    test("Then it should show a button dissabled with the text 'Add book' inside", () => {
+    test("Then it should show a disabled button with the text 'Add book' inside", () => {
       const expectedText = "Add book";
 
       renderWithProviders(
@@ -43,7 +43,7 @@ describe("Given a Form component", () => {
     });
   });
 
-  describe("When it is rendered and all its fields are completed", () => {
+  describe("When it is rendered on the AddBookPage and all its fields are completed", () => {
     test("Then button 'Add book' should be enabled", async () => {
       renderWithProviders(
         <Form onSubmit={mockFunction} textButton="Add book" />
@@ -88,7 +88,7 @@ describe("Given a Form component", () => {
     });
   });
 
-  describe("When it is rendered and receives book data, as the title 'El desorden que dejas' and the editorial 'Espasa'", () => {
+  describe("When it is rendered on the UpdateBookPage and receives book data, as the title 'El desorden que dejas' and the editorial 'Espasa'", () => {
     test("Then it should show the book title and editorial on the corresponding inputs", () => {
       const bookData = booksMocks[0];
       renderWithProviders(
@@ -100,6 +100,21 @@ describe("Given a Form component", () => {
 
       expect(titleInput).toHaveValue(bookData.title);
       expect(editorialInput).toHaveValue(bookData.editorial);
+    });
+
+    test("Then it should show a button with the text 'Modify' inside", () => {
+      const expectedText = "Modify";
+
+      renderWithProviders(
+        <Form
+          onSubmit={mockFunction}
+          textButton="Modify"
+          book={booksMocks[0]}
+        />
+      );
+
+      const button = screen.getByText(expectedText);
+      expect(button).toBeInTheDocument();
     });
   });
 });
