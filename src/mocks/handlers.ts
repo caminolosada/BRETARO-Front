@@ -33,7 +33,10 @@ export const handlers = [
 
 export const errorHandlers = [
   rest.get(`${apiUrl}/books`, (_req, res, ctx) => {
-    return res(ctx.status(500), ctx.json({ errorMessage: "Can't get books" }));
+    return res(
+      ctx.status(500),
+      ctx.json({ errorMessage: modalData.message.errorBooks })
+    );
   }),
 
   rest.delete(`${apiUrl}/books/delete/:id`, (_req, res, ctx) => {

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { BookDataStructure, BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import Button from "../Button/Button";
 import FormStyled from "./FormStyled";
 
 interface FormProps {
-  onSubmit: (bookData: BookStructure) => void;
+  onSubmit: (bookData: BookDataStructure) => void;
   book?: BookDataStructure;
   textButton: string;
 }
@@ -14,7 +14,7 @@ const Form = ({
   book,
   textButton,
 }: FormProps): React.ReactElement => {
-  const initialFormState: BookStructure = {
+  const initialFormState: BookDataStructure = {
     frontPage: book ? book.frontPage : "",
     title: book ? book.title : "",
     author: book ? book.author : "",
@@ -24,6 +24,7 @@ const Form = ({
     rating: book ? book.rating : 0,
     destination: book ? book.destination : "",
     cosmos: book ? book.cosmos : "",
+    id: book ? book.id : "",
   };
 
   const [bookData, setBookData] = useState(initialFormState);

@@ -116,23 +116,24 @@ const useBooks = () => {
 
   const editBook = async (
     bookData: BookDataStructure
-  ): Promise<BookStructure | undefined> => {
+  ): Promise<BookDataStructure | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
       const {
         data: { editedBook },
       } = await axios.put<{ editedBook: BookDataStructure }>(
-        `${apiUrl}/books`,
+        `${apiUrl}/books/`,
         bookData
       );
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
+          isVisible: true,
           isError: false,
           message: modalData.message.okEdit,
-          isVisible: true,
         })
       );
+
       return editedBook;
     } catch {
       dispatch(hideLoadingActionCreator());

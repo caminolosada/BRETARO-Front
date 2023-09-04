@@ -3,16 +3,18 @@ import Form from "../../components/Form/Form";
 import useBooks from "../../hooks/useBooks/useBooks";
 import { useAppSelector } from "../../store";
 import UpdateBookPageStiled from "./UpdateBookPageStyled";
-import { BookDataStructure, BookStructure } from "../../types";
+import { BookDataStructure } from "../../types";
 import paths from "../../routers/paths/paths";
 
 const UpdateBookPage = (): React.ReactElement => {
   const bookToUpdate = useAppSelector((state) => state.books.selectedBook);
   const { editBook } = useBooks();
+
   const navigate = useNavigate();
 
-  const onSubmit = async (bookToUpdate: BookStructure) => {
+  const onSubmit = async (bookToUpdate: BookDataStructure) => {
     await editBook(bookToUpdate as BookDataStructure);
+
     navigate(paths.home);
   };
   return (
