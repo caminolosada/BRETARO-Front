@@ -45,6 +45,17 @@ const BookDetailPageStyled = styled.main`
       background-color: ${(props) => props.theme.colors.background};
     }
   }
+
+  .modify__button {
+    margin-top: 34px;
+    background-color: ${(props) => props.theme.colors.tertiary};
+    color: ${(props) => props.theme.colors.generalText};
+    width: 162px;
+    height: 48px;
+    border-radius: 5px;
+    font-size: ${(props) => props.theme.fontSize.medium};
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
 `;
 
 export default BookDetailPageStyled;

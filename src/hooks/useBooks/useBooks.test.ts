@@ -162,7 +162,7 @@ describe("Given a useBooks function", () => {
   });
 
   describe("When it calls the editBook function with a valid book data to update", () => {
-    test("Then it should show a modal with the message 'You book has been successfully modified'", async () => {
+    test("Then it should show a modal with the message 'Your book has been successfully modified'", async () => {
       server.resetHandlers(...handlers);
       const bookData = addedBookMock;
       const expectedMessage = modalData.message.okEdit;
