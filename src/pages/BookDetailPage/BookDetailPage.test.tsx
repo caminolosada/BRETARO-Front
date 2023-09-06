@@ -18,6 +18,14 @@ describe("Given a BookDetailPage", () => {
 
       expect(frontPage).toBeInTheDocument;
     });
+    test("Then it should show a button with the accesible name 'modify'", () => {
+      const expectedLabelText = "modify";
+
+      renderWithProviders(wrapWithRouter(<BookDetailPage />));
+
+      const button = screen.getByLabelText(expectedLabelText);
+      expect(button).toBeInTheDocument();
+    });
   });
   describe("When it is rendered with the status property as false", () => {
     test("Then it should show the text 'Unread'", () => {
