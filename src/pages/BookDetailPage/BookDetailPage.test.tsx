@@ -2,16 +2,15 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import BookDetailPage from "./BookDetailPage";
-import { addedBookMock, booksMocks } from "../../mocks/booksMock";
 import paths from "../../routers/paths/paths";
+import { addedBookMock, booksMocks } from "../../mocks/booksMock";
+import BookDetailPage from "./BookDetailPage";
 import UpdateBookPage from "../UpdateBookPage/UpdateBookPage";
 
 describe("Given a BookDetailPage", () => {
   describe("When it is rendered", () => {
     test("Then it should show a front page image with the alternative text 'frontpage'", () => {
       const expectedAlternativeText = "frontpage";
-
       renderWithProviders(wrapWithRouter(<BookDetailPage />));
 
       const frontPage = screen.getByAltText(expectedAlternativeText);
@@ -24,6 +23,7 @@ describe("Given a BookDetailPage", () => {
       renderWithProviders(wrapWithRouter(<BookDetailPage />));
 
       const button = screen.getByLabelText(expectedLabelText);
+
       expect(button).toBeInTheDocument();
     });
   });
