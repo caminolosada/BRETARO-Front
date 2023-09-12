@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import BooksList from "../../components/BooksList/BooksList";
 import useBooks from "../../hooks/useBooks/useBooks";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { loadBooksActionCreator } from "../../store/books/booksSlice";
+import {
+  loadBooksActionCreator,
+  loadMoreBooksActionCreator,
+} from "../../store/books/booksSlice";
 import BookListPageStyled from "./BookListPageStyled";
+import LoadMore from "../../components/LoadMore/LoadMore";
 
 const BookListPage = (): React.ReactElement => {
   const books = useAppSelector((state) => state.books.booksData);
@@ -12,7 +16,6 @@ const BookListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    window.scroll(0, 0);
     (async () => {
       const books = await getBooks();
 
@@ -20,11 +23,16 @@ const BookListPage = (): React.ReactElement => {
     })();
   }, [dispatch, getBooks]);
 
+  const handleOnClick = () => {
+    dispatch(loadMoreBooksActionCreator());
+  };
+
   return (
     <BookListPageStyled>
       <h2 className="greeting">Hi, reader!</h2>
       <h1 className="title">What is in your shelf?</h1>
       <BooksList booksProps={books} />
+      <LoadMore onClick={handleOnClick} />
     </BookListPageStyled>
   );
 };
