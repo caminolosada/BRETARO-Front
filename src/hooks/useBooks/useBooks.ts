@@ -6,19 +6,20 @@ import {
   showModalActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import modalData from "../../components/Modal/modalData";
 
 export const apiUrl = import.meta.env.VITE_API_URL;
 
 const useBooks = () => {
+  const { collection } = useAppSelector((state) => state.books);
   const dispatch = useAppDispatch();
   const getBooks = useCallback(async (): Promise<BookDataStructure[]> => {
     try {
       dispatch(showLoadingActionCreator());
 
       const { data: books } = await axios.get<BookDataStructure[]>(
-        `${apiUrl}/books`
+        `${apiUrl}/books/?limit=${collection}`
       );
 
       dispatch(hideLoadingActionCreator());
@@ -34,7 +35,7 @@ const useBooks = () => {
       );
       throw new Error("Can't get books");
     }
-  }, [dispatch]);
+  }, [dispatch, collection]);
 
   const deleteBooks = async (id: string): Promise<void> => {
     try {
