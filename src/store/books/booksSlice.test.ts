@@ -6,6 +6,7 @@ import {
   booksReducer,
   deleteBooksActionCreator,
   loadBooksActionCreator,
+  loadMoreBooksActionCreator,
   loadSelectedBookActionCreator,
 } from "./booksSlice";
 
@@ -28,6 +29,7 @@ describe("Given a loadBooks reducer", () => {
           title: "",
           id: "",
         },
+        collection: 7,
       };
 
       const loadBooksAction = loadBooksActionCreator(booksMocks);
@@ -64,9 +66,18 @@ describe("Given a deleteBooks reducer", () => {
           title: "",
           id: "",
         },
+        collection: 7,
       };
       const expectedNewState: BooksState = {
-        booksData: [booksMocks[1], booksMocks[2], booksMocks[3]],
+        booksData: [
+          booksMocks[1],
+          booksMocks[2],
+          booksMocks[3],
+          booksMocks[4],
+          booksMocks[5],
+          booksMocks[6],
+          booksMocks[7],
+        ],
         selectedBook: {
           author: "",
           cosmos: "",
@@ -79,6 +90,7 @@ describe("Given a deleteBooks reducer", () => {
           title: "",
           id: "",
         },
+        collection: 7,
       };
 
       const deleteBooksAction = deleteBooksActionCreator(booksMocks[0].id);
@@ -109,6 +121,7 @@ describe("Given a addBooks reducer", () => {
           title: "",
           id: "",
         },
+        collection: 7,
       };
 
       const expectedNewState: BooksState = {
@@ -125,6 +138,7 @@ describe("Given a addBooks reducer", () => {
           title: "",
           id: "",
         },
+        collection: 7,
       };
 
       const addBookAction = addBooksActionCreator(addedBookMock);
@@ -155,11 +169,13 @@ describe("Given a loadSelectedBook reducer", () => {
           title: "",
           id: "",
         },
+        collection: 7,
       };
 
       const expectedNewState: BooksState = {
         booksData: booksMocks,
         selectedBook: addedBookMock,
+        collection: 7,
       };
 
       const loadSelectedAction = loadSelectedBookActionCreator(addedBookMock);
@@ -170,6 +186,55 @@ describe("Given a loadSelectedBook reducer", () => {
       );
 
       expect(newState).toStrictEqual(expectedNewState);
+    });
+  });
+});
+
+describe("Given a loadMoreBooks reducer", () => {
+  describe("When it receives a collection of books and the action to load more books", () => {
+    test("Then it should return the current and the new collection of books", () => {
+      const currentBooksState: BooksState = {
+        booksData: booksMocks,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          rating: 0,
+          id: "",
+          publicationYear: "",
+          status: true,
+          title: "",
+        },
+        collection: 7,
+      };
+
+      const expectedBooksState: BooksState = {
+        booksData: booksMocks,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          rating: 0,
+          id: "",
+          publicationYear: "",
+          status: true,
+          title: "",
+        },
+        collection: 14,
+      };
+
+      const loadMoreBooksAction = loadMoreBooksActionCreator();
+
+      const newState: BooksState = booksReducer(
+        currentBooksState,
+        loadMoreBooksAction
+      );
+
+      expect(newState).toStrictEqual(expectedBooksState);
     });
   });
 });

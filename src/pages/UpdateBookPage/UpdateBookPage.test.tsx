@@ -29,6 +29,7 @@ describe("Given an UpdateBookPage", () => {
         books: {
           booksData: booksMocks,
           selectedBook: booksMocks[0],
+          collection: 7,
         },
       });
 
@@ -56,7 +57,11 @@ describe("Given an UpdateBookPage", () => {
       const router = createMemoryRouter(routes);
 
       renderWithProviders(<RouterProvider router={router} />, {
-        books: { booksData: booksMocks, selectedBook: booksMocks[0] },
+        books: {
+          booksData: booksMocks,
+          selectedBook: booksMocks[0],
+          collection: 7,
+        },
       });
 
       const titleInput = screen.getByLabelText(titleLabel);

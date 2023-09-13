@@ -57,6 +57,62 @@ export const booksMocks: BookDataStructure[] = [
     cosmos:
       "Una historia fascinante sobre el poder de los libros y la importancia de la escritura a lo largo de la historia de la humanidad.",
   },
+  {
+    id: "64fb4178460337a4f8c8b6f1",
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    frontPage:
+      "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686052201/9780241950425-es_pqleih.webp",
+    publicationYear: "1951",
+    editorial: "Little, Brown and Company",
+    status: true,
+    rating: 4,
+    destination: "get rid",
+    cosmos:
+      "Don't ever tell anybody anything. If you do, you start missing everybody.",
+  },
+  {
+    id: "64fb4178460337a4f8c8b6f5",
+    title: "Cien años de soledad",
+    author: "Gabriel García Márquez",
+    frontPage:
+      "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_480/v1686555661/9788497592208_g53hrn.webp",
+    publicationYear: "1967",
+    editorial: "Editorial Sudamericana",
+    status: true,
+    rating: 3,
+    destination: "keep",
+    cosmos:
+      "Muchos años después, frente al pelotón de fusilamiento, el coronel Aureliano Buendía había de recordar aquella tarde remota en que su padre lo llevó a conocer el hielo.",
+  },
+  {
+    id: "64fb4178460337a4f8c8b6f3",
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    frontPage:
+      "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686052015/9781847493699_fx2qbg.webp",
+    publicationYear: "1813",
+    editorial: "T. Egerton, Whitehall",
+    status: true,
+    rating: 5,
+    destination: "borrowed",
+    cosmos:
+      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+  },
+  {
+    id: "64fb4178460337a4f8c8b6f4",
+    title: "La casa de los espíritus",
+    author: "Isabel Allende",
+    frontPage:
+      "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686556190/978846636208_xgqgfh.webp",
+    publicationYear: "1982",
+    editorial: "Editorial Sudamericana",
+    status: true,
+    rating: 5,
+    destination: "keep",
+    cosmos:
+      "Barrabás llegó a nosotros por mar, el niño Pedro Tercero García lo trajo de contrabando en una noche serena.",
+  },
 ];
 
 export const addedBookMock: BookDataStructure = {
