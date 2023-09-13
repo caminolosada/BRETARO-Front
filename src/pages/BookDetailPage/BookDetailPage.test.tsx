@@ -35,6 +35,7 @@ describe("Given a BookDetailPage", () => {
         books: {
           booksData: [{ ...addedBookMock, status: true }],
           selectedBook: addedBookMock,
+          collection: 7,
         },
       });
 
@@ -76,7 +77,11 @@ describe("Given a BookDetailPage", () => {
       const buttonText = "Modify";
 
       renderWithProviders(wrapWithRouter(<BookDetailPage />), {
-        books: { booksData: booksMocks, selectedBook: booksMocks[0] },
+        books: {
+          booksData: booksMocks,
+          selectedBook: booksMocks[0],
+          collection: 7,
+        },
       });
       const button = screen.getByText(buttonText);
 
