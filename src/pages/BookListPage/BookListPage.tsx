@@ -8,6 +8,7 @@ import {
 } from "../../store/books/booksSlice";
 import BookListPageStyled from "./BookListPageStyled";
 import LoadMore from "../../components/LoadMore/LoadMore";
+import Filter from "../../components/Filter/Filter";
 
 const BookListPage = (): React.ReactElement => {
   const books = useAppSelector((state) => state.books.booksData);
@@ -31,6 +32,7 @@ const BookListPage = (): React.ReactElement => {
     <BookListPageStyled>
       <h2 className="greeting">Hi, reader!</h2>
       <h1 className="title">What is in your shelf?</h1>
+      <Filter />
       <BooksList booksProps={books} />
       <LoadMore onClick={handleOnClick} />
     </BookListPageStyled>
