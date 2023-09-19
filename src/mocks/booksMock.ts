@@ -9,7 +9,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/v1685524428/el-desorden_xvuti4.webp",
     publicationYear: "2016",
     editorial: "Espasa",
-    status: true,
+    status: "read",
     rating: 4,
     destination: "keep",
     cosmos:
@@ -23,7 +23,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/v1685524636/9788432239939_nbrsas.webp",
     publicationYear: "2013",
     editorial: "Seix Barral",
-    status: true,
+    status: "read",
     rating: 5,
     destination: "keep",
     cosmos:
@@ -37,7 +37,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686086557/19375522579_usnvzf.webp",
     publicationYear: "1941",
     editorial: "Galaxia",
-    status: true,
+    status: "read",
     rating: 4,
     destination: "keep",
     cosmos:
@@ -51,7 +51,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686086788/9788466358293_w1z6qo.webp",
     publicationYear: "2019",
     editorial: "Siruela",
-    status: true,
+    status: "read",
     rating: 4,
     destination: "keep",
     cosmos:
@@ -65,7 +65,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686052201/9780241950425-es_pqleih.webp",
     publicationYear: "1951",
     editorial: "Little, Brown and Company",
-    status: true,
+    status: "read",
     rating: 4,
     destination: "get rid",
     cosmos:
@@ -79,7 +79,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_480/v1686555661/9788497592208_g53hrn.webp",
     publicationYear: "1967",
     editorial: "Editorial Sudamericana",
-    status: true,
+    status: "read",
     rating: 3,
     destination: "keep",
     cosmos:
@@ -93,7 +93,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686052015/9781847493699_fx2qbg.webp",
     publicationYear: "1813",
     editorial: "T. Egerton, Whitehall",
-    status: true,
+    status: "read",
     rating: 5,
     destination: "borrowed",
     cosmos:
@@ -107,7 +107,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/c_scale,w_150/v1686556190/978846636208_xgqgfh.webp",
     publicationYear: "1982",
     editorial: "Editorial Sudamericana",
-    status: true,
+    status: "read",
     rating: 5,
     destination: "keep",
     cosmos:
@@ -122,7 +122,7 @@ export const addedBookMock: BookDataStructure = {
   frontPage: "image_la_uruguaya.jpg",
   publicationYear: "2016",
   editorial: "Libros del Asteroide",
-  status: false,
+  status: "read",
   rating: 4,
   destination: "keep",
   cosmos:
@@ -135,7 +135,7 @@ export const createdBookMock: BookStructure = {
   frontPage: "https://imagessl3.casadellibro.com/a/l/t7/93/9788416213993.jpg",
   publicationYear: "2016",
   editorial: "Libros del Asteroide",
-  status: true,
+  status: "read",
   rating: 4,
   destination: "keep",
   cosmos:
@@ -149,7 +149,7 @@ export const errorEditMock: BookDataStructure = {
   frontPage: "image_la_uruguaya.jpg",
   publicationYear: "2016",
   editorial: "Libros del Asteroide",
-  status: false,
+  status: "unread",
   rating: 4,
   destination: "keep",
   cosmos:

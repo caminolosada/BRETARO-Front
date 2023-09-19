@@ -27,13 +27,13 @@ describe("Given a BookDetailPage", () => {
       expect(button).toBeInTheDocument();
     });
   });
-  describe("When it is rendered with the status property as false", () => {
-    test("Then it should show the text 'Unread'", () => {
-      const expectedText = "Unread";
+  describe("When it is rendered with the status property as 'read'", () => {
+    test("Then it should show the text 'Read'", () => {
+      const expectedText = "Read";
 
       renderWithProviders(wrapWithRouter(<BookDetailPage />), {
         books: {
-          booksData: [{ ...addedBookMock, status: true }],
+          booksData: [{ ...addedBookMock, status: "unread" }],
           selectedBook: addedBookMock,
           collection: 7,
         },

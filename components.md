@@ -14,7 +14,7 @@
     - frontPage: string
     - publicationYear: string
     - editorial: string
-    - status: boolean
+    - status: string
     - rating: number
     - destination: string
     - cosmos: string
