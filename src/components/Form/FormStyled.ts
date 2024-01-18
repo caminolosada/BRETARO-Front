@@ -60,6 +60,10 @@ const FormStyled = styled.form`
       }
     }
   }
+
+  .isNotVisible {
+    display: none;
+  }
 `;
 
 export default FormStyled;

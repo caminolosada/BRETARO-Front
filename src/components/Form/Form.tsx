@@ -20,7 +20,7 @@ const Form = ({
     author: book ? book.author : "",
     publicationYear: book ? book.publicationYear : "",
     editorial: book ? book.editorial : "",
-    status: book ? book.status : true,
+    status: book ? book.status : "unread",
     rating: book ? book.rating : 0,
     destination: book ? book.destination : "",
     cosmos: book ? book.cosmos : "",
@@ -43,20 +43,6 @@ const Form = ({
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
     onSubmit(bookData);
-  };
-
-  const onChangeStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    if (event.target.value === "read") {
-      setBookData({
-        ...bookData,
-        status: true,
-      });
-    } else {
-      setBookData({
-        ...bookData,
-        status: false,
-      });
-    }
   };
 
   const disabledButton =
@@ -134,17 +120,21 @@ const Form = ({
           name="status"
           id="status"
           className="form__select"
-          onChange={onChangeStatus}
+          onChange={onChangeForm}
           required
         >
-          <option value="read">Read</option>
+          <option hidden>Choose an option</option>
           <option value="unread">Unread</option>
+          <option value="read">Read</option>
         </select>
-        <label className="form__label" htmlFor="rating">
+        <label
+          className={bookData.status ? "form__label" : "isNotVisible"}
+          htmlFor="rating"
+        >
           Valoration (1-5)
         </label>
         <input
-          className="form__input"
+          className={bookData.status ? "form__input" : "isNotVisible"}
           type="number"
           id="rating"
           value={bookData.rating}
@@ -156,7 +146,7 @@ const Form = ({
           Choose destination
         </label>
         <select
-          name="status"
+          name="destination"
           id="destination"
           className="form__select"
           onChange={onChangeForm}
