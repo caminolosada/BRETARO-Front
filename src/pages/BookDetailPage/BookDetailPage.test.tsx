@@ -36,6 +36,7 @@ describe("Given a BookDetailPage", () => {
           booksData: [{ ...addedBookMock, status: "unread" }],
           selectedBook: addedBookMock,
           collection: 7,
+          filter: "",
         },
       });
 
@@ -81,6 +82,7 @@ describe("Given a BookDetailPage", () => {
           booksData: booksMocks,
           selectedBook: booksMocks[0],
           collection: 7,
+          filter: "",
         },
       });
       const button = screen.getByText(buttonText);

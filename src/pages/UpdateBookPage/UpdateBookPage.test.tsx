@@ -30,6 +30,7 @@ describe("Given an UpdateBookPage", () => {
           booksData: booksMocks,
           selectedBook: booksMocks[0],
           collection: 7,
+          filter: "",
         },
       });
 
@@ -61,6 +62,7 @@ describe("Given an UpdateBookPage", () => {
           booksData: booksMocks,
           selectedBook: booksMocks[0],
           collection: 7,
+          filter: "",
         },
       });
 

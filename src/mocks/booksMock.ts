@@ -9,7 +9,7 @@ export const booksMocks: BookDataStructure[] = [
       "https://res.cloudinary.com/dg1skxpqt/image/upload/v1685524428/el-desorden_xvuti4.webp",
     publicationYear: "2016",
     editorial: "Espasa",
-    status: "read",
+    status: "unread",
     rating: 4,
     destination: "keep",
     cosmos:

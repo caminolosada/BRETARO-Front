@@ -64,6 +64,7 @@ describe("Given a BookCard component", () => {
             id: "",
           },
           collection: 7,
+          filter: "",
         },
       });
 
