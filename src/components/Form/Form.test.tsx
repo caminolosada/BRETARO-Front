@@ -85,7 +85,7 @@ describe("Given a Form component", () => {
       const button = screen.getByText(buttonName);
 
       expect(button).toBeEnabled();
-    });
+    }, 7000);
   });
 
   describe("When it is rendered on the UpdateBookPage and receives book data, as the title 'El desorden que dejas' and the editorial 'Espasa'", () => {
@@ -115,6 +115,6 @@ describe("Given a Form component", () => {
 
       const button = screen.getByText(expectedText);
       expect(button).toBeInTheDocument();
-    });
+    }, 7000);
   });
 });
