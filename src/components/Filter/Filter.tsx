@@ -1,12 +1,19 @@
 import FilterStyled from "./FilterStyled";
 
-const Filter = (): React.ReactElement => {
+interface FilterProps {
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+const Filter = ({
+  onChange: handleOnFilter,
+}: FilterProps): React.ReactElement => {
   return (
     <FilterStyled>
       <select
         name="filter"
         className="filter__select"
         aria-label="filter by read or unread"
+        onChange={handleOnFilter}
       >
         <option hidden className="filter__default">
           Choose read/unread
