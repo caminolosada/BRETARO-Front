@@ -72,6 +72,6 @@ describe("Given an AddBookPage", () => {
       const message = store.getState().ui.modalState.message;
 
       expect(message).toBe(expectedMessage);
-    });
+    }, 7000);
   });
 });

@@ -3,6 +3,7 @@ import { BookDataStructure } from "../../types";
 import { BooksState } from "../types";
 import {
   addBooksActionCreator,
+  addFilterActionCreator,
   booksReducer,
   deleteBooksActionCreator,
   loadBooksActionCreator,
@@ -25,11 +26,12 @@ describe("Given a loadBooks reducer", () => {
           frontPage: "",
           publicationYear: "",
           rating: 0,
-          status: true,
+          status: "unread",
           title: "",
           id: "",
         },
         collection: 7,
+        filter: "",
       };
 
       const loadBooksAction = loadBooksActionCreator(booksMocks);
@@ -62,11 +64,12 @@ describe("Given a deleteBooks reducer", () => {
           frontPage: "",
           publicationYear: "",
           rating: 0,
-          status: true,
+          status: "read",
           title: "",
           id: "",
         },
         collection: 7,
+        filter: "",
       };
       const expectedNewState: BooksState = {
         booksData: [
@@ -86,11 +89,12 @@ describe("Given a deleteBooks reducer", () => {
           frontPage: "",
           publicationYear: "",
           rating: 0,
-          status: true,
+          status: "read",
           title: "",
           id: "",
         },
         collection: 7,
+        filter: "",
       };
 
       const deleteBooksAction = deleteBooksActionCreator(booksMocks[0].id);
@@ -117,11 +121,12 @@ describe("Given a addBooks reducer", () => {
           frontPage: "",
           publicationYear: "",
           rating: 0,
-          status: true,
+          status: "read",
           title: "",
           id: "",
         },
         collection: 7,
+        filter: "",
       };
 
       const expectedNewState: BooksState = {
@@ -134,11 +139,12 @@ describe("Given a addBooks reducer", () => {
           frontPage: "",
           publicationYear: "",
           rating: 0,
-          status: true,
+          status: "read",
           title: "",
           id: "",
         },
         collection: 7,
+        filter: "",
       };
 
       const addBookAction = addBooksActionCreator(addedBookMock);
@@ -165,17 +171,19 @@ describe("Given a loadSelectedBook reducer", () => {
           frontPage: "",
           publicationYear: "",
           rating: 0,
-          status: true,
+          status: "read",
           title: "",
           id: "",
         },
         collection: 7,
+        filter: "",
       };
 
       const expectedNewState: BooksState = {
         booksData: booksMocks,
         selectedBook: addedBookMock,
         collection: 7,
+        filter: "",
       };
 
       const loadSelectedAction = loadSelectedBookActionCreator(addedBookMock);
@@ -204,10 +212,11 @@ describe("Given a loadMoreBooks reducer", () => {
           rating: 0,
           id: "",
           publicationYear: "",
-          status: true,
+          status: "read",
           title: "",
         },
         collection: 7,
+        filter: "",
       };
 
       const expectedBooksState: BooksState = {
@@ -221,10 +230,11 @@ describe("Given a loadMoreBooks reducer", () => {
           rating: 0,
           id: "",
           publicationYear: "",
-          status: true,
+          status: "read",
           title: "",
         },
         collection: 14,
+        filter: "",
       };
 
       const loadMoreBooksAction = loadMoreBooksActionCreator();
@@ -232,6 +242,44 @@ describe("Given a loadMoreBooks reducer", () => {
       const newState: BooksState = booksReducer(
         currentBooksState,
         loadMoreBooksAction
+      );
+
+      expect(newState).toStrictEqual(expectedBooksState);
+    });
+  });
+});
+
+describe("Given a addFilter reducer", () => {
+  describe("When it receives an umpty filter state and the action to filter by 'unread'", () => {
+    test("Then it should return a new 'unread' filter state", () => {
+      const currentBooksState: BooksState = {
+        booksData: booksMocks,
+        selectedBook: {
+          author: "",
+          cosmos: "",
+          destination: "",
+          editorial: "",
+          frontPage: "",
+          id: "",
+          publicationYear: "",
+          rating: 0,
+          status: "",
+          title: "",
+        },
+        collection: 8,
+        filter: "",
+      };
+
+      const expectedBooksState: BooksState = {
+        ...currentBooksState,
+        filter: "unread",
+      };
+
+      const loadFilteredBooks = addFilterActionCreator("unread");
+
+      const newState: BooksState = booksReducer(
+        currentBooksState,
+        loadFilteredBooks
       );
 
       expect(newState).toStrictEqual(expectedBooksState);

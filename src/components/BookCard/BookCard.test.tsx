@@ -59,11 +59,12 @@ describe("Given a BookCard component", () => {
             frontPage: "",
             publicationYear: "",
             rating: 0,
-            status: true,
+            status: "read",
             title: "",
             id: "",
           },
           collection: 7,
+          filter: "",
         },
       });
 

@@ -12,11 +12,12 @@ const initialBooksState: BooksState = {
     frontPage: "",
     publicationYear: "",
     rating: 0,
-    status: true,
+    status: "",
     title: "",
     id: "",
   },
   collection: 7,
+  filter: "",
 };
 
 export const booksSlice = createSlice({
@@ -57,6 +58,13 @@ export const booksSlice = createSlice({
       ...currentBooksState,
       collection: currentBooksState.collection + 7,
     }),
+    addFilter: (
+      currentBooksState,
+      action: PayloadAction<string>
+    ): BooksState => ({
+      ...currentBooksState,
+      filter: action.payload,
+    }),
   },
 });
 
@@ -66,5 +74,6 @@ export const {
   addBooks: addBooksActionCreator,
   loadSelectedBook: loadSelectedBookActionCreator,
   loadMoreBooks: loadMoreBooksActionCreator,
+  addFilter: addFilterActionCreator,
 } = booksSlice.actions;
 export const booksReducer = booksSlice.reducer;
