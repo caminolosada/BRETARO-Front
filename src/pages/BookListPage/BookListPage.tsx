@@ -3,6 +3,7 @@ import BooksList from "../../components/BooksList/BooksList";
 import useBooks from "../../hooks/useBooks/useBooks";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
+  addFilterActionCreator,
   loadBooksActionCreator,
   loadMoreBooksActionCreator,
 } from "../../store/books/booksSlice";
@@ -12,6 +13,7 @@ import Filter from "../../components/Filter/Filter";
 
 const BookListPage = (): React.ReactElement => {
   const books = useAppSelector((state) => state.books.booksData);
+  const { filter } = useAppSelector((state) => state.books);
 
   const { getBooks } = useBooks();
   const dispatch = useAppDispatch();
@@ -22,17 +24,22 @@ const BookListPage = (): React.ReactElement => {
 
       dispatch(loadBooksActionCreator(books));
     })();
-  }, [dispatch, getBooks]);
+  }, [dispatch, getBooks, filter]);
 
   const handleOnClick = () => {
     dispatch(loadMoreBooksActionCreator());
+  };
+
+  const handleOnFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const filter = event.target.value;
+    dispatch(addFilterActionCreator(filter));
   };
 
   return (
     <BookListPageStyled>
       <h2 className="greeting">Hi, reader!</h2>
       <h1 className="title">What is in your shelf?</h1>
-      <Filter />
+      <Filter onChange={handleOnFilter} />
       <BooksList booksProps={books} />
       <LoadMore onClick={handleOnClick} />
     </BookListPageStyled>
