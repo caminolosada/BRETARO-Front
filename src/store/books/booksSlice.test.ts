@@ -3,9 +3,9 @@ import { BookDataStructure } from "../../types";
 import { BooksState } from "../types";
 import {
   addBooksActionCreator,
+  addFilterActionCreator,
   booksReducer,
   deleteBooksActionCreator,
-  filterActionCreator,
   loadBooksActionCreator,
   loadMoreBooksActionCreator,
   loadSelectedBookActionCreator,
@@ -249,9 +249,9 @@ describe("Given a loadMoreBooks reducer", () => {
   });
 });
 
-describe("Given a loadFilteredBooks reducer", () => {
-  describe("When it receives a collection of books and the action to filter by 'unread'", () => {
-    test("Then it should return a collection of the unreaded books", () => {
+describe("Given a addFilter reducer", () => {
+  describe("When it receives an umpty filter state and the action to filter by 'unread'", () => {
+    test("Then it should return a new 'unread' filter state", () => {
       const currentBooksState: BooksState = {
         booksData: booksMocks,
         selectedBook: {
@@ -275,7 +275,7 @@ describe("Given a loadFilteredBooks reducer", () => {
         filter: "unread",
       };
 
-      const loadFilteredBooks = filterActionCreator("unread");
+      const loadFilteredBooks = addFilterActionCreator("unread");
 
       const newState: BooksState = booksReducer(
         currentBooksState,

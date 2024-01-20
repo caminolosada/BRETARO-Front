@@ -58,7 +58,7 @@ export const booksSlice = createSlice({
       ...currentBooksState,
       collection: currentBooksState.collection + 7,
     }),
-    loadFilteredBooks: (
+    addFilter: (
       currentBooksState,
       action: PayloadAction<string>
     ): BooksState => ({
@@ -74,6 +74,6 @@ export const {
   addBooks: addBooksActionCreator,
   loadSelectedBook: loadSelectedBookActionCreator,
   loadMoreBooks: loadMoreBooksActionCreator,
-  loadFilteredBooks: filterActionCreator,
+  addFilter: addFilterActionCreator,
 } = booksSlice.actions;
 export const booksReducer = booksSlice.reducer;
